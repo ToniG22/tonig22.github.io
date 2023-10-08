@@ -9,7 +9,7 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Three cards in each row */
+  grid-template-columns: repeat(4, 1fr); /* Three cards in each row */
   gap: 40px; /* Adjust the gap between cards as needed */
   padding: 50px;
 }
