@@ -1,4 +1,85 @@
 .wrapper {
-    background-color: red;
-    margin:20px 180px;
+  background-color: rgb(138, 78, 162);
+  margin: 0px 180px;
+}
+
+.event-card {
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Three cards in each row */
+  gap: 40px; /* Adjust the gap between cards as needed */
+  padding: 50px;
+}
+
+.event-card-img {
+  width: 200px;
+  height: 250px;
+  border: 2px solid transparent; /* Add a transparent border by default */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+  position: relative;
+  border-radius: 10px;
+}
+
+.event-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.event-card-img .event-card-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.event-card-img:hover {
+  border-color: #007bff; /* Change the border color on hover */
+}
+
+.event-card-img:hover .event-card-text {
+  opacity: 1;
+}
+
+.navbar {
+  margin: 0px 180px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
 }
