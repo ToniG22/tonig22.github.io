@@ -14,6 +14,12 @@
   padding: 50px;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .event-card-img {
   width: 200px;
   height: 250px;

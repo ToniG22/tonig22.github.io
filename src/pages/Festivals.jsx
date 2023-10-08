@@ -6,8 +6,9 @@ const Festivals = () => {
   // Define dynamic values for the event image, name, and location
 
   return (
-    <div>
-      <Spotify link="https://open.spotify.com/track/1Jk03rMQGTjdkjNtCGgkPd?si=8c74bf53339944af" />
+    <>
+    <Spotify link="https://open.spotify.com/track/1Jk03rMQGTjdkjNtCGgkPd?si=8c74bf53339944af" />
+    <div className="container">
       <div className="grid-container">
         <BoxElement
           eventImage="/summeropening.jpg"
@@ -61,6 +62,7 @@ const Festivals = () => {
         />
       </div>
     </div>
+    </>
   );
 };
 
