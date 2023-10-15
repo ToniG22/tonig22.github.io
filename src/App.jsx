@@ -24,16 +24,17 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Layout />
         <div className="wrapper">
           <Routes>
-            <Route path="/" index element={<Home />} />
-            <Route path="/admin" index element={<Admin />} />
-            <Route path="/festivais" index element={<Festivais events={events} />} />
-            <Route path="/arraiais" index element={<Arraiais events={events} />} />
-            <Route path="/map" index element={<Map />} />
-            <Route path="/festivais/:id" index element={<EventDetails events={events} />} />
-            <Route path="/arraiais/:id" index element={<EventDetails events={events} />} />
+            <Route path="/" element={<Layout/>}>
+              <Route path="/" index element={<Home />} />
+              <Route path="/admin" index element={<Admin />} />
+              <Route path="/festivais" index element={<Festivais events={events} />} />
+              <Route path="/arraiais" index element={<Arraiais events={events} />} />
+              <Route path="/map" index element={<Map />} />
+              <Route path="/festivais/:id" index element={<EventDetails events={events} />} />
+              <Route path="/arraiais/:id" index element={<EventDetails events={events} />} />
+            </Route>
           </Routes>
         </div>
       </BrowserRouter>

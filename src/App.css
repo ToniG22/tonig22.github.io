@@ -1,9 +1,74 @@
-.wrapper {
-  background-color: rgb(138, 78, 162);
-  margin: 0px 180px;
+/* ----------------------------------------------NAVBAR STYLES-------------------------------------------------- */
+.Header{
+  padding: 4px 5px;
+  display: flex;
+  justify-content: space-between ;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  background-color: #1c062e;
+  color: white;
+}
+.PageLogo{
+  display: flex; 
+  align-items: center; 
+  gap: 10px;
+  padding: 10px;
+  padding-left: 35px;
+  font-size: x-large
+}
+.PageLogo svg{
+  color: #9315C8;
+}
+.NavBarLinks{
+  margin: 0;
+  padding: 13px 10px;
+}
+.NavBarLinks a {
+  margin: 0;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+}
+.NavBarLinks a:hover {
+  background-image: linear-gradient(to bottom, #FF60AA, #9315C8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent; /* Hacer el texto transparente para que se vea el degradado detrás */
+  transition: color 0.3s; /* Transición suave para el cambio de color del texto */
+}
+.nav-link {
+  text-decoration: none; 
+}
+.nav-link.active {
+  border-bottom: 4px solid #9315C8;
 }
 
-.navbar {
+/* ------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------FOOTER STYLES---------------------------------------------------- */
+.Footer{
+  background-color: #1c062e;
+  padding: 30px;
+  text-align: center;
+  font-size: large;
+}
+.Footer a{
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+.FooterLinks{
+  padding: 15px;
+}
+.Footer p{
+  border-top: 1px solid #ffffff;
+  padding: 10px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+.wrapper {
+  background-color: rgb(138, 78, 162);
   margin: 0px 180px;
 }
 
