@@ -9,13 +9,16 @@ const Layout = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/festivals">Festivals</Link>
+            <Link to="/festivais">Festivais</Link>
           </li>
           <li>
             <Link to="/arraiais">Arraiais</Link>
           </li>
           <li>
-            <Link to="/counter">Counter</Link>
+            <Link to="/map">Map</Link>
+          </li>
+          <li>
+            <Link to="/admin">Admin</Link>
           </li>
         </ul>
       </nav>

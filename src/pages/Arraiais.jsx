@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import EventsGrid from './EventsGrid';
 
-const Arraiais = () => {
+const Arraiais = ({ events }) => {
+  // Filter events of type "arraiais"
+  const arraiaisEvents = events.filter(event => event.type === 'arraiais');
+
+  console.log(arraiaisEvents);
+
   return (
-    <div>Arraiais</div>
-  )
+    <div>
+      <h1>Arraiais</h1>
+      <EventsGrid events={arraiaisEvents} />
+    </div>
+  );
 }
 
-export default Arraiais
+export default Arraiais;

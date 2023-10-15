@@ -2,3 +2,25 @@ html,body {
   margin: 0;
   background-color: grey;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.event-item {
+  position: relative;
+}
+
+.show-more {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.event-item:hover .show-more {
+  display: block;
+}
