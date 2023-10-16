@@ -69,11 +69,37 @@
 
 /* ------------------------------------------------------------------------------------------------------------- */
 .wrapper {
-  background-image: url('../public/BackgroundSGM.jpg');
+  position: relative; /* This ensures the pseudo-element is positioned relative to this element */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1; /* This positions the pseudo-element behind the actual content */
+
+  background-image: url('../public/BackgroundSGM.jpg');
+  background-size: cover;
+  animation: pulse 4.5s infinite alternate;
+
+  filter: blur(5px); /* This blurs the background image of the pseudo-element */
+}
+
+@keyframes pulse {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 110%;
+  }
+}
+
 
 ul {
   list-style-type: none;
