@@ -10,8 +10,8 @@
   color: white;
 }
 .PageLogo{
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   gap: 10px;
   padding: 10px;
   padding-left: 35px;
@@ -38,7 +38,7 @@
   transition: color 0.3s; /* Transición suave para el cambio de color del texto */
 }
 .nav-link {
-  text-decoration: none; 
+  text-decoration: none;
 }
 .nav-link.active {
   border-bottom: 4px solid #9315C8;
@@ -48,6 +48,7 @@
 /* --------------------------------------------FOOTER STYLES---------------------------------------------------- */
 .Footer{
   background-color: #1c062e;
+  margin-top: auto;
   padding: 30px;
   text-align: center;
   font-size: large;
@@ -69,7 +70,9 @@
 /* ------------------------------------------------------------------------------------------------------------- */
 .wrapper {
   background-color: rgb(138, 78, 162);
-  margin: 0px 180px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
