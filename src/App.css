@@ -49,7 +49,7 @@
 .Footer{
   background-color: #1c062e;
   margin-top: auto;
-  padding: 30px;
+  padding: 10px;
   text-align: center;
   font-size: large;
 }
@@ -69,7 +69,7 @@
 
 /* ------------------------------------------------------------------------------------------------------------- */
 .wrapper {
-  background-color: rgb(138, 78, 162);
+  background-image: url('../public/BackgroundSGM.jpg');
   min-height: 100vh;
   display: flex;
   flex-direction: column;
