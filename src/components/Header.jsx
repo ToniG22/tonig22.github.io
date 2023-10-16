@@ -1,11 +1,11 @@
-import { NavLink} from "react-router-dom";
-import { FaMusic } from 'react-icons/fa';
+import { NavLink } from "react-router-dom";
+import { FaMusic } from "react-icons/fa";
 
 export default function Header() {
   return (
     <div className="Header">
       <div className="PageLogo">
-        SGM <FaMusic/>  
+        SGM <FaMusic />
       </div>
       <div>
         <nav>
@@ -35,12 +35,12 @@ export default function Header() {
               Arraiais
             </NavLink>
             <NavLink
-              to="map"
+              to="mapa"
               className={(navData) =>
                 navData.isActive ? "nav-link active" : "nav-link"
               }
             >
-              Map
+              Mapa
             </NavLink>
             <NavLink
               to="admin"

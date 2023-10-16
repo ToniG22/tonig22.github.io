@@ -1,4 +1,4 @@
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -9,14 +9,12 @@ export default function Footer() {
             <NavLink to="/">Home</NavLink>
             <NavLink to="festivais">Festivais</NavLink>
             <NavLink to="arraiais">Arraiais</NavLink>
-            <NavLink to="map">Map</NavLink>
+            <NavLink to="mapa">Mapa</NavLink>
             <NavLink to="admin">Admin</NavLink>
           </div>
         </nav>
       </div>
-      <p>
-        2023 All rights reserved
-      </p>
+      <p>2023 All rights reserved</p>
     </div>
   );
 }

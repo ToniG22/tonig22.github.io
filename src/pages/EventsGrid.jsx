@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function EventsGrid({ events }) {
   const navigate = useNavigate();
@@ -7,7 +7,7 @@ function EventsGrid({ events }) {
   return (
     <div className="events-container">
       <div className="events-grid">
-        {events.map(event => (
+        {events.map((event) => (
           <div
             key={event.id}
             className="event-card"
@@ -16,7 +16,9 @@ function EventsGrid({ events }) {
           >
             <img src={event.img} alt={event.title} />
             <div className="hover-overlay">
-              Show More... {/* Maybe we'll need to put this in Portuguese 🩻 */}
+              {event.title} - {event.location} <br></br>
+              Mostrar mais...
+              {/* Maybe we'll need to put this in Portuguese 🩻 */}
             </div>
           </div>
         ))}
