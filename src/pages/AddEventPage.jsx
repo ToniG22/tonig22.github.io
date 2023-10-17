@@ -29,7 +29,7 @@ const AddEventPage = () => {
 
     return (
         <div>
-            <EventsForm onFormSubmit={handleFormSubmit} events={events} />
+            <EventsForm onFormSubmit={handleFormSubmit} events={events} setEvents={setEvents} />
             <EventsTable events={events} onDeleteEvent={handleDeleteEvent} />
         </div>
     );
