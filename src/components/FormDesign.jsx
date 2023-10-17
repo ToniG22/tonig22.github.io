@@ -19,8 +19,8 @@ export default function FormBackGround(){
                   y2="599.607"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#AB0279" />
-                  <stop offset="1" stop-color="#682497" />
+                  <stop stopColor="#AB0279" />
+                  <stop offset="1" stopColor="#682497" />
                 </linearGradient>
               </defs>
             </svg>
