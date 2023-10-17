@@ -1,42 +1,72 @@
 // Admin.js
-import React, { useState } from 'react';
-import AddEventPage from './AddEventPage';
+import React, { useState } from "react";
+import AddEventPage from "./AddEventPage";
+import FormBackGround from "../components/FormDesign";
+import HumanIcon from "../assets/HumanIcon.png";
+import ProfileIcon from "../assets/ProfileIcon.png";
+import { FaUserAlt, FaLock } from "react-icons/fa";
 
 const Admin = () => {
-    const [authenticated, setAuthenticated] = useState(false);
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+  const [authenticated, setAuthenticated] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleLogin = () => {
-        if(username === 'admin' && password === 'admin') {
-            setAuthenticated(true);
-        } else {
-            alert('Incorrect username or password!');
-        }
-    };
-
-    if(authenticated) {
-        return <AddEventPage />;
+  const handleLogin = () => {
+    if (username === "admin" && password === "admin") {
+      setAuthenticated(true);
+    } else {
+      alert("Incorrect username or password!");
     }
+  };
 
-    return (
-        <div>
-            <h1>Admin Login</h1>
+  if (authenticated) {
+    return <AddEventPage />;
+  }
+
+  return (
+    <div>
+      <h1>Admin Login</h1>
+      <div className="FormPlacement">
+        <div className="FormContainer">
+          <div>
+            <FormBackGround />
+            <img className="HumanIcon" src={HumanIcon}></img>
+          </div>
+          <div className="FormInputs">
+            <img className="ProfileIcon" src={ProfileIcon}></img>
+            <p> WELCOME </p>
             <div>
-                <label>
-                    Username:
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                </label>
+              <label>
+                {" "}
+                <FaUserAlt />
+                <input
+                  placeholder="Username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </label>
             </div>
             <div>
-                <label>
-                    Password:
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </label>
+              <label>
+                {" "}
+                <FaLock />
+                <input
+                  placeholder="Password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>
             </div>
-            <button onClick={handleLogin}>Login</button>
+            <button className="LoginButtom" onClick={handleLogin}>
+              LOGIN
+            </button>
+          </div>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default Admin;
