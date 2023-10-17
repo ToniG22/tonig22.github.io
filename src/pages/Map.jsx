@@ -1,19 +1,61 @@
 import React, { useState } from "react";
 import EventsGrid from "./EventsGrid";
+import { CiLocationOn } from "react-icons/ci";
 
 const Map = ({ events }) => {
-  const localidades = [
-    "Funchal",
-    "Câmara de Lobos",
-    "Ribeira Brava",
-    "Caniço",
-    "Machico",
-    "Calheta",
-    "Curral das Freiras",
-    "Porto Moniz",
-    "São Vicente",
-    "Santana",
-  ];
+  const localidades = {
+    location1: {
+      name: "Funchal",
+      top: "541px",
+      left: "731px",
+    },
+    location2: {
+      name: "Ribeira Brava",
+      top: "457px",
+      left: "389px",
+    },
+    location3: {
+      name: "Santa Cruz",
+      top: "501px",
+      left: "954px",
+    },
+    location4: {
+      name: "Câmara de Lobos",
+      top: "506px",
+      left: "565px",
+    },
+    location5: {
+      name: "Calheta",
+      top: "259px",
+      left: "67px",
+    },
+    location6: {
+      name: "Machico",
+      top: "334px",
+      left: "1084px",
+    },
+    location7: {
+      name: "Santana",
+      top: "164px",
+      left: "787px",
+    },
+    location8: {
+      name: "São Vicente",
+      top: "200px",
+      left: "473px",
+    },
+    location9: {
+      name: "Porto Moniz",
+      top: "62px",
+      left: "102px",
+    },
+    location10: {
+      name: "Ponta do Sol",
+      top: "365px",
+      left: "233px",
+    },
+    // ... add other locations as needed
+  };
 
   var [selectedLocation, setSelectedLocation] = useState("");
 
@@ -29,16 +71,35 @@ const Map = ({ events }) => {
     <div>
       {!selectedLocation && (
         <div>
-          <h1>Mapa</h1>
-          {localidades.map((location, index) => (
-            <button
-              key={index}
-              onClick={() => setSelectedLocation(location)}
-              className={selectedLocation === location ? "active" : ""}
-            >
-              {location}
-            </button>
-          ))}
+          <h1 className="title">Escolha a freguesia:</h1>
+          <div className="mapPos">
+            {Object.values(localidades).map((location, index) => (
+              <div
+                className="mapNeedle"
+                style={{
+                  position: "absolute",
+                  top: location.top,
+                  left: location.left,
+                }}
+                key={index}
+              >
+                <button
+                  onClick={() => setSelectedLocation(location.name)}
+                  className={`locationButton ${
+                    selectedLocation === location.name ? "active" : ""
+                  }`}
+                >
+                  {location.name}
+                </button>
+                <CiLocationOn
+                  size={75}
+                  className={`ciLocationOn ${
+                    selectedLocation === location.name ? "hidden" : ""
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       )}
       {selectedLocation && (
