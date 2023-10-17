@@ -81,11 +81,6 @@
   background-color: white;
   border-radius: 18px;
   height: 430.5px;
-  position: relative; /* Añade esta propiedad */
-}
-.LeftForm{
-  display: flex;
-  justify-content: center;
 }
 .FormInputs {
   display: flex;
@@ -116,7 +111,7 @@ label {
 input {
   padding: 5px;
   /* margin-bottom: 25px; */
-  width: 100%; 
+  width: 100%;
   border: none;
   border-bottom: 1px solid black;
 }
@@ -153,9 +148,9 @@ svg {
   width: 350px;
   height: 350px;
   position: absolute;
-  top: 270px; 
-  left: 380px; 
-  z-index: 1; 
+  top: 270px;
+  left: 380px;
+  z-index: 1;
 }
 /* ------------------------------------------------------------------------------------------------------------- */
 h1{
