@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EventsGrid from "./EventsGrid";
 import { CiLocationOn } from "react-icons/ci";
 
-const Map = ({ events }) => {
+const Map = () => {
+
+  const [events, setEvents] = useState([]);
+
+  const reloadEvents = () => {
+    const storedEvents = localStorage.getItem("events");
+    const parsedEvents = storedEvents ? JSON.parse(storedEvents) : [];
+    setEvents(parsedEvents);
+  };
+
+  useEffect(() => {
+    reloadEvents();
+  }, []);
+
   const localidades = {
     location1: {
       name: "Funchal",

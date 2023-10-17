@@ -1,6 +1,19 @@
 import { useParams } from "react-router-dom";
+import React, {useState, useEffect} from "react";
 
-function EventDetails({ events }) {
+function EventDetails() {
+  const [events, setEvents] = useState([]);
+
+  const reloadEvents = () => {
+    const storedEvents = localStorage.getItem("events");
+    const parsedEvents = storedEvents ? JSON.parse(storedEvents) : [];
+    setEvents(parsedEvents);
+  };
+
+  useEffect(() => {
+    reloadEvents();
+  }, []);
+
   const { id } = useParams();
   const event = events.find((e) => e.id === parseInt(id, 10));
 
@@ -17,7 +30,7 @@ function EventDetails({ events }) {
           <p>{event.description}</p>
         </div>
       </div>
-      <div class="event-content-container"></div>
+      <div className="event-content-container"></div>
       <div className="event-content-container ">
         <p>
           <strong>Freguesia:</strong> {event.location}

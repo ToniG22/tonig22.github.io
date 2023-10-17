@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const initialFormData = Object.freeze({
   id: "",
@@ -11,9 +10,11 @@ const initialFormData = Object.freeze({
     SAM: "",
   },
   location: "",
+  location2: "",
   img: "/images/placeholder.png",
   type: "festivais",
   date: "",
+  date2: "",
   spotify: {
     spotify1: "",
     spotify2: "",
@@ -23,8 +24,52 @@ const initialFormData = Object.freeze({
   cartazSource: "/images/placeholder.png",
 });
 
-const EventsForm = ({ onFormSubmit, events, setEvents }) => {
+const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
   const [formData, updateFormData] = useState(initialFormData);
+
+  // If there's an editing event, populate form data with its values
+  useEffect(() => {
+    if (editingEvent) {
+      updateFormData(editingEvent);
+    } else {
+      updateFormData(initialFormData);
+    }
+  }, [editingEvent]);
+
+  const handleReset = () => {
+    updateFormData(initialFormData);
+    if (editingEvent) setEditingEvent(null);
+  };
+
+  const handleChange = (e) => {
+    const targetName = e.target.name;
+    let value = e.target.value;
+
+    // Handle nested object changes
+    if (targetName.includes(".")) {
+      const parts = targetName.split(".");
+      value = {
+        ...formData[parts[0]],
+        [parts[1]]: value,
+      };
+
+      updateFormData((prevState) => ({
+        ...prevState,
+        [parts[0]]: value,
+      }));
+    } else {
+      updateFormData({
+        ...formData,
+        [targetName]: value,
+      });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onFormSubmit(formData);
+    updateFormData(initialFormData); // Clear form after submission
+  };
 
   // Export events to JSON
   const handleExportToJson = () => {
@@ -58,36 +103,6 @@ const EventsForm = ({ onFormSubmit, events, setEvents }) => {
     }
   };
 
-  const handleChange = (e) => {
-    const targetName = e.target.name;
-    let value = e.target.value;
-
-    // Handle nested object changes
-    if (targetName.includes(".")) {
-      const parts = targetName.split(".");
-      value = {
-        ...formData[parts[0]],
-        [parts[1]]: value,
-      };
-
-      updateFormData((prevState) => ({
-        ...prevState,
-        [parts[0]]: value,
-      }));
-    } else {
-      updateFormData({
-        ...formData,
-        [targetName]: value,
-      });
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onFormSubmit(formData);
-    updateFormData(initialFormData); // Clear form after submission
-  };
-
   return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -107,6 +122,54 @@ const EventsForm = ({ onFormSubmit, events, setEvents }) => {
           value={formData.description}
           onChange={handleChange}
         ></textarea>
+      </label>
+      <br />
+      <label>
+        Type of Event:
+        <select name="type" value={formData.type} onChange={handleChange}>
+          <option value="festivais">Festivais</option>
+          <option value="arraiais">Arraiais</option>
+        </select>
+      </label>
+      <br />
+      <label>
+        Event Date:
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Event Date 2:
+        <input
+          type="date"
+          name="date2"
+          value={formData.date2}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Location:
+        <input
+          type="text"
+          name="location"
+          value={formData.location}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Location 2:
+        <input
+          type="text"
+          name="location2"
+          value={formData.location2}
+          onChange={handleChange}
+        />
       </label>
       <br />
       <label>
@@ -135,44 +198,6 @@ const EventsForm = ({ onFormSubmit, events, setEvents }) => {
           type="text"
           name="transports.SAM"
           value={formData.transports.SAM}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Location:
-        <input
-          type="text"
-          name="location"
-          value={formData.location}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Img. Source:
-        <input
-          type="text"
-          name="img"
-          value={formData.img}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Type of Event:
-        <select name="type" value={formData.type} onChange={handleChange}>
-          <option value="festivais">Festivais</option>
-          <option value="arraiais">Arraiais</option>
-        </select>
-      </label>
-      <br />
-      <label>
-        Event Date:
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
           onChange={handleChange}
         />
       </label>
@@ -208,15 +233,14 @@ const EventsForm = ({ onFormSubmit, events, setEvents }) => {
       </label>
       <br />
       <label>
-        Gallery Path:
+        Img. Source:
         <input
           type="text"
-          name="gallery"
-          value={formData.gallery}
+          name="img"
+          value={formData.img}
           onChange={handleChange}
         />
       </label>
-      <br />
       <label>
         Cartaz Source:
         <input
@@ -226,17 +250,38 @@ const EventsForm = ({ onFormSubmit, events, setEvents }) => {
           onChange={handleChange}
         />
       </label>
-      <div className="buttonContainer">
-        <button type="button" onClick={handleExportToJson}>Export to JSON</button>
+      <br />
+      <label>
+        Gallery Path:
         <input
-            type="file"
-            id="fileInput"
-            onChange={handleImportFromJson}
-            accept=".json"
-            className="hideFileInput"
+          type="text"
+          name="gallery"
+          value={formData.gallery}
+          onChange={handleChange}
         />
-        <label htmlFor="fileInput" className="fileInputLabel">Import from JSON</label>
-        <button type="submit">Add Event</button>
+      </label>
+      <div className="buttonContainer">
+        <button type="button" onClick={handleExportToJson}>
+          Export to JSON
+        </button>
+        <input
+          type="file"
+          id="fileInput"
+          onChange={handleImportFromJson}
+          accept=".json"
+          className="hideFileInput"
+        />
+        <label htmlFor="fileInput" className="fileInputLabel">
+          Import from JSON
+        </label>
+        {editingEvent && (
+          <button type="button" onClick={handleReset}>
+            Cancel
+          </button>
+        )}
+        <button type="submit">
+          {editingEvent ? "Update Event" : "Add Event"}
+        </button>
       </div>
     </form>
   );

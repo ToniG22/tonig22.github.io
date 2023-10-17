@@ -1,6 +1,6 @@
 import React from "react";
 
-const EventsTable = ({ events, onDeleteEvent }) => {
+const EventsTable = ({ events, onDeleteEvent, onEditEvent }) => {
   return (
     <div className="tableContainer">
       <table border="1">
@@ -10,16 +10,12 @@ const EventsTable = ({ events, onDeleteEvent }) => {
               "Id",
               "Title",
               "Description",
-              "RODESTE Transport",
-              "GIRO Transport",
-              "SAM Transport",
-              "Location",
-              "Img. Source",
               "Type of Event",
-              "Event Date",
-              "Spotify 1",
-              "Spotify 2",
-              "Spotify 3",
+              "Event Dates",
+              "Location",
+              "Transports",
+              "Spotify",
+              "Img. Source",
               "Gallery",
               "Cartaz Source",
               "Actions",
@@ -34,19 +30,16 @@ const EventsTable = ({ events, onDeleteEvent }) => {
               <td>{event.id}</td>
               <td>{event.title}</td>
               <td>{event.description}</td>
-              <td>{event.transports.rodeste}</td>
-              <td>{event.transports.giro}</td>
-              <td>{event.transports.SAM}</td>
-              <td>{event.location}</td>
-              <td>{event.img}</td>
               <td>{event.type}</td>
-              <td>{event.date}</td>
-              <td>{event.spotify && event.spotify.spotify1}</td>
-              <td>{event.spotify && event.spotify.spotify2}</td>
-              <td>{event.spotify && event.spotify.spotify3}</td>
+              <td>{event.date} - {event.date2}</td>
+              <td>{event.location} - {event.location2}</td>
+              <td>Rodoeste: {event.transports && event.transports.rodeste} <br/> Giro: {event.transports && event.transports.giro} <br/> Sam: {event.transports && event.transports.SAM}</td>
+              <td>Spotify1: {event.spotify && event.spotify.spotify1} <br/> Spotify2: {event.spotify && event.spotify.spotify2} <br/> Spotify3: {event.spotify && event.spotify.spotify3} </td>
+              <td>{event.img}</td>
               <td>{event.gallery}</td>
               <td>{event.cartazSource}</td>
               <td>
+                <button onClick={() => onEditEvent(event.id)}>Edit</button>
                 <button onClick={() => onDeleteEvent(event.id)}>Delete</button>
               </td>
             </tr>

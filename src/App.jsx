@@ -1,5 +1,4 @@
-import "./App.css";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -8,18 +7,9 @@ import Arraiais from "./pages/Arraiais";
 import Festivais from "./pages/Festivals";
 import Map from "./pages/Map";
 import EventDetails from "./pages/EventDetails";
+import "./App.css";
 
 function App() {
-  // Initial load of events from localStorage
-  const storedEvents = localStorage.getItem("events");
-  const [events, setEvents] = useState(
-    storedEvents ? JSON.parse(storedEvents) : []
-  );
-
-  // When events change (add or delete), save them to localStorage
-  useEffect(() => {
-    localStorage.setItem("events", JSON.stringify(events));
-  }, [events]);
 
   return (
     <>
@@ -32,23 +22,23 @@ function App() {
               <Route
                 path="/festivais"
                 index
-                element={<Festivais events={events} />}
+                element={<Festivais />}
               />
               <Route
                 path="/arraiais"
                 index
-                element={<Arraiais events={events} />}
+                element={<Arraiais />}
               />
-              <Route path="/mapa" index element={<Map events={events} />} />
+              <Route path="/mapa" index element={<Map />} />
               <Route
                 path="/festivais/:id"
                 index
-                element={<EventDetails events={events} />}
+                element={<EventDetails />}
               />
               <Route
                 path="/arraiais/:id"
                 index
-                element={<EventDetails events={events} />}
+                element={<EventDetails />}
               />
             </Route>
           </Routes>
