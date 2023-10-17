@@ -67,6 +67,10 @@
 }
 
 /* ------------------------------------------------------------------------------------------------------------- */
+h1 {
+  padding: 20px;
+}
+
 .wrapper {
   position: relative; /* This ensures the pseudo-element is positioned relative to this element */
   min-height: 100vh;
@@ -290,7 +294,7 @@ button {
   width: max-content;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 button:hover {
