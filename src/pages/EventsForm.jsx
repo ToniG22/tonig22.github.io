@@ -9,17 +9,12 @@ const initialFormData = Object.freeze({
     giro: "",
     SAM: "",
   },
-  location: "",
+  location: "Funchal",
   location2: "",
   img: "/images/placeholder.png",
   type: "festivais",
-  date: "",
-  date2: "",
-  spotify: {
-    spotify1: "",
-    spotify2: "",
-    spotify3: "",
-  },
+  dates: [""],
+  spotify: [""],
   gallery: "/images/gallery/summeropening/",
   cartazSource: "/images/placeholder.png",
 });
@@ -36,6 +31,22 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
     }
   }, [editingEvent]);
 
+  const handleAddField = (field) => {
+    updateFormData((prevState) => ({
+      ...prevState,
+      [field]: Array.isArray(prevState[field])
+        ? [...prevState[field], ""]
+        : [""],
+    }));
+  };
+
+  const handleRemoveField = (field, index) => {
+    updateFormData((prevState) => ({
+      ...prevState,
+      [field]: prevState[field].filter((_, i) => i !== index),
+    }));
+  };
+
   const handleReset = () => {
     updateFormData(initialFormData);
     if (editingEvent) editingEvent(null);
@@ -45,23 +56,29 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
     const targetName = e.target.name;
     let value = e.target.value;
 
-    // Handle nested object changes
     if (targetName.includes(".")) {
-      const parts = targetName.split(".");
-      value = {
-        ...formData[parts[0]],
-        [parts[1]]: value,
-      };
+      const [field, index] = targetName.split(".");
+      if (Array.isArray(formData[field])) {
+        // Handle array fields like spotify and dates
+        value = [...formData[field]];
+        value[index] = e.target.value;
+      } else {
+        // Handle nested object changes
+        value = {
+          ...formData[field],
+          [index]: e.target.value,
+        };
+      }
 
       updateFormData((prevState) => ({
         ...prevState,
-        [parts[0]]: value,
+        [field]: value,
       }));
     } else {
-      updateFormData({
-        ...formData,
+      updateFormData((prevState) => ({
+        ...prevState,
         [targetName]: value,
-      });
+      }));
     }
   };
 
@@ -132,29 +149,36 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
         </select>
       </label>
       <br />
-      <label>
-        Event Date:
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Event Date 2:
-        <input
-          type="date"
-          name="date2"
-          value={formData.date2}
-          onChange={handleChange}
-        />
-      </label>
+      {formData.dates.map((dateValue, index) => (
+        <div key={index}>
+          <label>
+            Event Date {index + 1}:
+            <input
+              type="date"
+              name={`dates.${index}`}
+              value={dateValue}
+              onChange={handleChange}
+            />
+          </label>
+          <button
+            type="button"
+            onClick={() => handleRemoveField("dates", index)}
+          >
+            Remove
+          </button>{" "}
+        </div>
+      ))}
+      <button type="button" onClick={() => handleAddField("dates")}>
+        + Add Date
+      </button>{" "}
       <br />
       <label>
         Freguesia:
-        <select name="location" value={formData.location} onChange={handleChange}>
+        <select
+          name="location"
+          value={formData.location}
+          onChange={handleChange}
+        >
           <option value="Funchal">Funchal</option>
           <option value="Ribeira Brava">Ribeira Brava</option>
           <option value="Santa Cruz">Santa Cruz</option>
@@ -208,35 +232,28 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
         />
       </label>
       <br />
-      <label>
-        Spotify 1:
-        <input
-          type="text"
-          name="spotify.spotify1"
-          value={formData.spotify.spotify1}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Spotify 2:
-        <input
-          type="text"
-          name="spotify.spotify2"
-          value={formData.spotify.spotify2}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Spotify 3:
-        <input
-          type="text"
-          name="spotify.spotify3"
-          value={formData.spotify.spotify3}
-          onChange={handleChange}
-        />
-      </label>
+      {formData.spotify.map((spotifyValue, index) => (
+        <div key={index}>
+          <label>
+            Spotify {index + 1}:
+            <input
+              type="text"
+              name={`spotify.${index}`}
+              value={spotifyValue}
+              onChange={handleChange}
+            />
+          </label>
+          <button
+            type="button"
+            onClick={() => handleRemoveField("spotify", index)}
+          >
+            Remove
+          </button>
+        </div>
+      ))}
+      <button type="button" onClick={() => handleAddField("spotify")}>
+        + Add Spotify
+      </button>
       <br />
       <label>
         Img. Source:

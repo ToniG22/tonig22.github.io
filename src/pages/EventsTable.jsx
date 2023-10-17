@@ -31,10 +31,25 @@ const EventsTable = ({ events, onDeleteEvent, onEditEvent }) => {
               <td>{event.title}</td>
               <td>{event.description}</td>
               <td>{event.type}</td>
-              <td>{event.date} - {event.date2}</td>
-              <td>{event.location} - {event.location2}</td>
-              <td>Rodoeste: {event.transports && event.transports.rodeste} <br/> Giro: {event.transports && event.transports.giro} <br/> Sam: {event.transports && event.transports.SAM}</td>
-              <td>Spotify1: {event.spotify && event.spotify.spotify1} <br/> Spotify2: {event.spotify && event.spotify.spotify2} <br/> Spotify3: {event.spotify && event.spotify.spotify3} </td>
+              <td>
+                {event.dates.slice(0, -1).join(", ")} - {event.dates.slice(-1)}
+              </td>
+              <td>
+                {event.location} - {event.location2}
+              </td>
+              <td>
+                Rodoeste: {event.transports && event.transports.rodeste} <br />{" "}
+                Giro: {event.transports && event.transports.giro} <br /> Sam:{" "}
+                {event.transports && event.transports.SAM}
+              </td>
+              <td>
+                {event.spotify &&
+                  event.spotify.map((link, index) => (
+                    <div key={index}>
+                      Spotify{index + 1}: {link}
+                    </div>
+                  ))}
+              </td>
               <td>{event.img}</td>
               <td>{event.gallery}</td>
               <td>{event.cartazSource}</td>

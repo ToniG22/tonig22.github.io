@@ -40,7 +40,7 @@ function EventDetails() {
         </p>
         <p>
           <strong> Data: </strong>
-          {event.date}
+          {event.dates[0]} {/* Agora é array, vai pelo índice */}
         </p>{" "}
       </div>
       <div className="event-content-container">
@@ -64,6 +64,7 @@ function EventDetails() {
       </div>
       <div className="event-content-container"></div>
       VEJAM NA CONSOLA O QUE TEM
+      SPOTIFY E DATES ENTRAR PELO INDEX
       {/* We still need to add more info regarding an event, and think about the page layout */}
       {/* The page layout will be the SAME for all events */}
     </div>
