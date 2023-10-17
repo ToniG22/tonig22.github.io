@@ -28,7 +28,7 @@ const Admin = () => {
       <h1>Admin Login</h1>
       <div className="FormPlacement">
         <div className="FormContainer">
-          <div>
+          <div className="LeftForm">
             <FormBackGround />
             <img className="HumanIcon" src={HumanIcon}></img>
           </div>
