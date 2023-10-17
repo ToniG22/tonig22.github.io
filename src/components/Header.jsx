@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { FaMusic } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Header() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="Header">
-      <div className="PageLogo">
+      <div onClick={() => navigate("/")} className="PageLogo" style={{cursor: "pointer"}}>
         SGM <FaMusic />
       </div>
       <div>

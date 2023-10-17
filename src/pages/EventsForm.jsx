@@ -38,7 +38,7 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
 
   const handleReset = () => {
     updateFormData(initialFormData);
-    if (editingEvent) setEditingEvent(null);
+    if (editingEvent) editingEvent(null);
   };
 
   const handleChange = (e) => {
@@ -153,13 +153,19 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
       </label>
       <br />
       <label>
-        Location:
-        <input
-          type="text"
-          name="location"
-          value={formData.location}
-          onChange={handleChange}
-        />
+        Freguesia:
+        <select name="location" value={formData.location} onChange={handleChange}>
+          <option value="Funchal">Funchal</option>
+          <option value="Ribeira Brava">Ribeira Brava</option>
+          <option value="Santa Cruz">Santa Cruz</option>
+          <option value="Câmara de Lobos">Câmara de Lobos</option>
+          <option value="Calheta">Calheta</option>
+          <option value="Machico">Machico</option>
+          <option value="Santana">Santana</option>
+          <option value="São Vicente">São Vicente</option>
+          <option value="Porto Moniz">Porto Moniz</option>
+          <option value="Ponta do Sol">Ponta do Sol</option>
+        </select>
       </label>
       <br />
       <label>
