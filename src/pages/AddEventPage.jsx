@@ -51,6 +51,7 @@ const AddEventPage = () => {
         events={events}
         setEvents={setEvents}
         editingEvent={editingEvent}
+        setEditingEvent={setEditingEvent}
       />
       <EventsTable
         events={events}

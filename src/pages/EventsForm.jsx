@@ -13,13 +13,21 @@ const initialFormData = Object.freeze({
   location2: "",
   img: "/images/placeholder.png",
   type: "festivais",
-  dates: [""],
-  spotify: [""],
+  beginDate: "",
+  endDate: "",
+  spotify: [],
   gallery: "/images/gallery/summeropening/",
   cartazSource: "/images/placeholder.png",
+  siteUrl: ""
 });
 
-const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
+const EventsForm = ({
+  onFormSubmit,
+  events,
+  setEvents,
+  editingEvent,
+  setEditingEvent,
+}) => {
   const [formData, updateFormData] = useState(initialFormData);
 
   // If there's an editing event, populate form data with its values
@@ -49,17 +57,23 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
 
   const handleReset = () => {
     updateFormData(initialFormData);
-    if (editingEvent) editingEvent(null);
+    if (editingEvent) setEditingEvent(null);
   };
 
   const handleChange = (e) => {
     const targetName = e.target.name;
     let value = e.target.value;
 
+    // Check if the field is a date field and transform the date
+    /* if (targetName === "beginDate" || targetName === "endDate") {
+      const [year, month, day] = value.split("-");
+      value = `${day}-${month}-${year}`;
+    }
+ */
     if (targetName.includes(".")) {
       const [field, index] = targetName.split(".");
       if (Array.isArray(formData[field])) {
-        // Handle array fields like spotify and dates
+        // Handle array fields like spotify
         value = [...formData[field]];
         value[index] = e.target.value;
       } else {
@@ -149,28 +163,25 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
         </select>
       </label>
       <br />
-      {formData.dates.map((dateValue, index) => (
-        <div key={index}>
-          <label>
-            Event Date {index + 1}:
-            <input
-              type="date"
-              name={`dates.${index}`}
-              value={dateValue}
-              onChange={handleChange}
-            />
-          </label>
-          <button
-            type="button"
-            onClick={() => handleRemoveField("dates", index)}
-          >
-            Remove
-          </button>{" "}
-        </div>
-      ))}
-      <button type="button" onClick={() => handleAddField("dates")}>
-        + Add Date
-      </button>{" "}
+      <label>
+        Begin Date:
+        <input
+          type="date"
+          name="beginDate"
+          value={formData.beginDate}
+          onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        End Date:
+        <input
+          type="date"
+          name="endDate"
+          value={formData.endDate}
+          onChange={handleChange}
+        />
+      </label>
       <br />
       <label>
         Freguesia:
@@ -281,6 +292,16 @@ const EventsForm = ({ onFormSubmit, events, setEvents, editingEvent }) => {
           name="gallery"
           value={formData.gallery}
           onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Site Url:
+        <input
+        type="text"
+        name="siteUrl"
+        value={formData.siteUrl}
+        onChange={handleChange}
         />
       </label>
       <div className="buttonContainer">

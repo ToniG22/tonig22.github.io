@@ -18,6 +18,7 @@ const EventsTable = ({ events, onDeleteEvent, onEditEvent }) => {
               "Img. Source",
               "Gallery",
               "Cartaz Source",
+              "Site Url",
               "Actions",
             ].map((header) => (
               <th key={header}>{header}</th>
@@ -32,7 +33,7 @@ const EventsTable = ({ events, onDeleteEvent, onEditEvent }) => {
               <td>{event.description}</td>
               <td>{event.type}</td>
               <td>
-                {event.dates.slice(0, -1).join(", ")} - {event.dates.slice(-1)}
+                {event.beginDate} - {event.endDate}
               </td>
               <td>
                 {event.location} - {event.location2}
@@ -53,6 +54,7 @@ const EventsTable = ({ events, onDeleteEvent, onEditEvent }) => {
               <td>{event.img}</td>
               <td>{event.gallery}</td>
               <td>{event.cartazSource}</td>
+              <td>{event.siteUrl}</td>
               <td>
                 <button onClick={() => onEditEvent(event.id)}>Edit</button>
                 <button onClick={() => onDeleteEvent(event.id)}>Delete</button>
