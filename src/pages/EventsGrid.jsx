@@ -16,7 +16,7 @@ function EventsGrid({ events }) {
           >
             <img src={event.img} alt={event.title} />
             <div className="hover-overlay">
-              {event.title} - {event.location} <br></br>
+              {event.title} - {event.location2} <br></br>
               Mostrar mais...
               {/* Maybe we'll need to put this in Portuguese 🩻 */}
             </div>

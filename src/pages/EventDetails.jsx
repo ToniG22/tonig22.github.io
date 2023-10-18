@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { Spotify } from "react-spotify-embed";
 
 function EventDetails() {
   const [events, setEvents] = useState([]);
@@ -24,49 +25,66 @@ function EventDetails() {
   return (
     <div className="event-details">
       <div className="event-content-container">
-        <img src={event.img} alt={event.title} style={{ width: "250px" }} />
-        <div>
+        <img src={event.img} alt={event.title} className="imgEvent" />
+        <div className="titleDescription">
           <h2>{event.title}</h2>
           <p>{event.description}</p>
         </div>
       </div>
-      <div className="event-content-container"></div>
-      <div className="event-content-container ">
-        <p>
-          <strong>Freguesia:</strong> {event.location}
-        </p>
-        <p>
-          <strong>Local: </strong>
-        </p>
-        <p>
-          <strong> Data: </strong>
-          {event.dates[0]} {/* Agora é array, vai pelo índice */}
-        </p>{" "}
+      <div>
+        <div className="centered-content">
+          <h2 className="maintitles">Local e Data</h2>
+          <div>
+            <h2 className="subtitles">
+              {event.location2}, {event.location} a {event.dates[0]}
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="centered-content">
+          <h2 className="maintitles">Galeria</h2>
+          <div>---</div>
+        </div>
+      </div>
+      <div>
+        <div className="centered-content">
+          <h2 className="maintitles">Autocarros</h2>
+          <table className="tableEvent">
+            <thead>
+              <tr>
+                <th>Horários do Funchal</th>
+                <th>Rodoeste</th>
+                <th>SAM</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{event.transports.giro}</td>
+                <td>{event.transports.rodeste}</td>
+                <td>{event.transports.SAM}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div className="centered-content">
+          <h2 className="maintitles">Música que poderá ouvir no festival</h2>
+          <div>
+            <Spotify link={event.spotify[0]} />
+          </div>
+        </div>
       </div>
       <div className="event-content-container">
-        <h2>Autocarros</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Horários do Funchal</th>
-              <th>Rodoeste</th>
-              <th>SAM</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{event.transports.giro}</td>
-              <td>{event.transports.rodeste}</td>
-              <td>{event.transports.SAM}</td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 className="subtitles">
+          <strong> Para mais detalhes, visite o site deste evento: </strong>
+          <a href="https://summeropening.pt/" className="link">
+            https://summeropening.pt/
+          </a>
+          .
+        </h2>
       </div>
-      <div className="event-content-container"></div>
-      VEJAM NA CONSOLA O QUE TEM
-      SPOTIFY E DATES ENTRAR PELO INDEX
-      {/* We still need to add more info regarding an event, and think about the page layout */}
-      {/* The page layout will be the SAME for all events */}
     </div>
   );
 }

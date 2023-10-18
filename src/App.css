@@ -476,3 +476,53 @@ svg {
   z-index: 2;
   top: 30px;
 }
+.titleDescription {
+  margin-left: 2%;
+  text-align: justify;
+}
+
+.subtitles {
+  font-weight: normal;
+}
+
+.event-content-container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-content {
+  text-align: center;
+}
+
+.imgEvent {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tableEvent {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td {
+  width: auto;
+  text-align: center;
+}
+
+.link {
+  color: white;
+}
+
+.link:hover {
+  color: #9315c8;
+}
+
+.toggleSpotify {
+  position: fixed;
+  transform: rotate(270deg);
+  top: 15%; /* Adjust this value as needed to control the distance from the top of the viewport */
+  right: -1%;
+}
