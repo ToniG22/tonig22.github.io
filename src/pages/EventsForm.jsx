@@ -16,6 +16,7 @@ const initialFormData = Object.freeze({
   beginDate: "",
   endDate: "",
   spotify: [],
+  youtube: [],
   gallery: "/images/gallery/summeropening/",
   cartazSource: "/images/placeholder.png",
   siteUrl: ""
@@ -264,6 +265,29 @@ const EventsForm = ({
       ))}
       <button type="button" onClick={() => handleAddField("spotify")}>
         + Add Spotify
+      </button>
+      <br />
+      {formData.youtube.map((youtubeValue, index) => (
+        <div key={index}>
+          <label>
+            Youtube {index + 1}:
+            <input
+              type="text"
+              name={`youtube.${index}`}
+              value={youtubeValue}
+              onChange={handleChange}
+            />
+          </label>
+          <button
+            type="button"
+            onClick={() => handleRemoveField("youtube", index)}
+          >
+            Remove
+          </button>
+        </div>
+      ))}
+      <button type="button" onClick={() => handleAddField("youtube")}>
+        + Add youtube
       </button>
       <br />
       <label>

@@ -36,7 +36,7 @@ function EventDetails() {
           <h2 className="maintitles">Local e Data</h2>
           <div>
             <h2 className="subtitles">
-              {event.location}, {event.location2} a {event.beginDate}
+              {event.location2}, {event.location} a {event.beginDate}
             </h2>
           </div>
         </div>
@@ -71,11 +71,9 @@ function EventDetails() {
       <div>
         <div className="centered-content">
           <h2 className="maintitles">Música que poderá ouvir no festival</h2>
-          <div>
+          <div className="spotifyContainer">
             {event.spotify && event.spotify.length > 0
-              ? event.spotify
-                  .filter((link) => link !== "")
-                  .map((link, index) => <Spotify key={index} link={link} />)
+              ? event.spotify.map((link, index) => <Spotify className="Spotify" wide key={index} link={link} />)
               : null}
           </div>
         </div>

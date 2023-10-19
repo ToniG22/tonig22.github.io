@@ -15,6 +15,7 @@ const EventsTable = ({ events, onDeleteEvent, onEditEvent }) => {
               "Location",
               "Transports",
               "Spotify",
+              "Youtube",
               "Img. Source",
               "Gallery",
               "Cartaz Source",
@@ -48,6 +49,14 @@ const EventsTable = ({ events, onDeleteEvent, onEditEvent }) => {
                   event.spotify.map((link, index) => (
                     <div key={index}>
                       Spotify{index + 1}: {link}
+                    </div>
+                  ))}
+              </td>
+              <td>
+                {event.youtube &&
+                  event.youtube.map((link, index) => (
+                    <div key={index}>
+                      Youtube{index + 1}: {link}
                     </div>
                   ))}
               </td>
