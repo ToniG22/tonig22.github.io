@@ -35,7 +35,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  transition: color 0.3s; 
+  transition: color 0.3s;
 }
 .nav-link {
   text-decoration: none;
@@ -368,7 +368,7 @@ input {
   background-image: linear-gradient(to bottom, #9315c8, #ff3694);
   border: 2px solid #9315c8;
   color: white;
-  transition: color 0.45s;  
+  transition: color 0.45s;
 }
 svg {
   position: relative;
@@ -395,9 +395,9 @@ form {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 4px 4px 5px,#333;
-  background: rgba(255, 255, 255, 0.25); 
-  backdrop-filter: blur(20px); 
-  border: 1px solid rgb(209, 209, 209); 
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgb(209, 209, 209);
   color: #ffffff;
 }
 
@@ -434,6 +434,7 @@ form select{
 form input[type="date"],
 form textarea{
   width: 98%;
+  max-width: 98;
 }
 form input[type="text"]{
   width: 98%;
@@ -461,22 +462,39 @@ form input[type="text"]{
 }
 
 form button {
+  position: relative;
   padding: 10px 10px;
-  background-color:#9315c8;
+  background-color: #9315c8;
   margin: 10px 15px 10px 15px;
   color: white;
   border: none;
   font-size: 15px;
   border-radius: 6px;
-  transition: color 0.3s;
   cursor: pointer;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  overflow: hidden; /* Ensure the fake element does not overflow */
+  z-index: 1;
+}
 
-}
-form button:hover {
+/* Fake element with the gradient color above the button */
+form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-image: linear-gradient(to bottom, #9315c8, #ff3694);
-  color: white;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
 }
+
+/* Make the fake element visible */
+form button:hover::before {
+  opacity: 1;
+}
+
 .buttonContainer {
   display: flex;
   column-gap: 20px;
@@ -497,12 +515,28 @@ form button:hover {
   cursor: pointer;
   font-size: 15px;
   font-weight: normal;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.fileInputLabel:hover {
+.fileInputLabel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-image: linear-gradient(to bottom, #9315c8, #ff3694);
-  color: white;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
 }
+
+.fileInputLabel:hover::before {
+  opacity: 1;
+}
+
 .AddEvent{
   padding: 15px 20px;
   background-color:#9315c8;
