@@ -244,8 +244,10 @@ const EventsForm = ({
         />
       </label>
       <br />
+      <div className="MediaContainer">
+      <div className="SpotifyContainer">
       {formData.spotify.map((spotifyValue, index) => (
-        <div key={index}>
+        <div className="AlignRemove" key={index}>
           <label>
             Spotify {index + 1}:
             <input
@@ -266,9 +268,11 @@ const EventsForm = ({
       <button type="button" onClick={() => handleAddField("spotify")}>
         + Add Spotify
       </button>
+      </div>
       <br />
+      <div className="SpotifyContainer">
       {formData.youtube.map((youtubeValue, index) => (
-        <div key={index}>
+        <div className="AlignRemove" key={index}>
           <label>
             Youtube {index + 1}:
             <input
@@ -289,6 +293,8 @@ const EventsForm = ({
       <button type="button" onClick={() => handleAddField("youtube")}>
         + Add youtube
       </button>
+      </div>
+      </div>
       <br />
       <label>
         Img. Source:
@@ -299,6 +305,7 @@ const EventsForm = ({
           onChange={handleChange}
         />
       </label>
+      <br />
       <label>
         Cartaz Source:
         <input
@@ -339,6 +346,9 @@ const EventsForm = ({
           accept=".json"
           className="hideFileInput"
         />
+        <button className="AddEvent" type="submit">
+          {editingEvent ? "Update Event" : "Add Event"}
+        </button>
         <label htmlFor="fileInput" className="fileInputLabel">
           Import from JSON
         </label>
@@ -347,9 +357,7 @@ const EventsForm = ({
             Cancel
           </button>
         )}
-        <button type="submit">
-          {editingEvent ? "Update Event" : "Add Event"}
-        </button>
+        
       </div>
     </form>
   );
