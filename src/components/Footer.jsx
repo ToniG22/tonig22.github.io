@@ -6,11 +6,46 @@ export default function Footer() {
       <div>
         <nav>
           <div className="FooterLinks">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="festivais">Festivais</NavLink>
-            <NavLink to="arraiais">Arraiais</NavLink>
-            <NavLink to="mapa">Mapa</NavLink>
-            <NavLink to="admin">Admin</NavLink>
+          <NavLink
+              to="/"
+              className={(navData) =>
+                navData.isActive ? "footer-link active" : "footer-link"
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="festivais"
+              className={(navData) =>
+                navData.isActive ? "footer-link active" : "footer-link"
+              }
+            >
+              Festivais
+            </NavLink>
+            <NavLink
+              to="arraiais"
+              className={(navData) =>
+                navData.isActive ? "footer-link active" : "footer-link"
+              }
+            >
+              Arraiais
+            </NavLink>
+            <NavLink
+              to="mapa"
+              className={(navData) =>
+                navData.isActive ? "footer-link active" : "footer-link"
+              }
+            >
+              Mapa
+            </NavLink>
+            <NavLink
+              to="admin"
+              className={(navData) =>
+                navData.isActive ? "footer-link active" : "footer-link"
+              }
+            >
+              Admin
+            </NavLink>
           </div>
         </nav>
       </div>
