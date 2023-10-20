@@ -64,7 +64,7 @@ const EventsTable = ({ events, onDeleteEvent, onEditEvent }) => {
               <td>{event.gallery}</td>
               <td>{event.cartazSource}</td>
               <td>{event.siteUrl}</td>
-              <td>
+              <td className="ActionButtons">
                 <button onClick={() => onEditEvent(event.id)}>Edit</button>
                 <button onClick={() => onDeleteEvent(event.id)}>Delete</button>
               </td>

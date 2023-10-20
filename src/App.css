@@ -205,43 +205,6 @@ li a:hover {
   opacity: 1;
 }
 
-/* ----------- EventsForm Styles ----------- */
-
-
-/* ----------- EventsTable Styles ----------- */
-.tableContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-  padding: 20px;
-}
-
-table {
-  width: 80%;
-  max-width: 800px;
-  margin: auto;
-  border-collapse: collapse;
-  background-color: grey;
-}
-
-th,
-td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-  font-size: 0.9em;
-}
-
-thead {
-  background-color: #9315c8;
-  color: white;
-}
-
-.title {
-  margin: 2% 0 2% 2%;
-}
-
 /* ----------- Mapa ----------- */
 
 .mapPos {
@@ -396,7 +359,7 @@ form {
   border-radius: 15px;
   box-shadow: 4px 4px 5px,#333;
   background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
   border: 1px solid rgb(209, 209, 209);
   color: #ffffff;
 }
@@ -472,11 +435,10 @@ form button {
   border-radius: 6px;
   cursor: pointer;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  overflow: hidden; /* Ensure the fake element does not overflow */
+  overflow: hidden; 
   z-index: 1;
 }
 
-/* Fake element with the gradient color above the button */
 form button::before {
   content: '';
   position: absolute;
@@ -487,7 +449,7 @@ form button::before {
   background-image: linear-gradient(to bottom, #9315c8, #ff3694);
   opacity: 0;
   z-index: -1;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
 }
 
 /* Make the fake element visible */
@@ -538,8 +500,9 @@ form button:hover::before {
 }
 
 .AddEvent{
-  padding: 15px 20px;
+  padding: 18px 25px;
   background-color:#9315c8;
+  font-weight: 350px;
   margin: 10px 30px 10px 30px;
   color: white;
   border: none;
@@ -548,6 +511,57 @@ form button:hover::before {
   cursor: pointer;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+/* ------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------EVENTS TABLE STYLES------------------------------------------------------ */
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 10px;
+}
+
+table {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.212);
+  backdrop-filter: blur(5px);
+}
+
+th,
+td {
+  position: relative;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  text-align: left;
+  font-size: 1em;
+}
+thead {
+  background-color: #6b1192;
+  color: white;
+}
+.ActionButtons button{
+  position: relative;
+  padding: 10px 10px;
+  background-color: #ffffff;
+  margin: auto 10px;
+  color: #6b1192;
+  border: none;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+}
+.ActionButtons button:hover{
+  background-color: #6b1192;
+  color: #ffffff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
 
 /* ------------------------------------------------------------------------------------------------------------- */
 
