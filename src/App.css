@@ -521,7 +521,6 @@ form button:hover::before {
   overflow: auto;
   padding: 10px;
 }
-
 table {
   width: 80%;
   max-width: 800px;
@@ -530,18 +529,23 @@ table {
   background-color: rgba(255, 255, 255, 0.212);
   backdrop-filter: blur(5px);
 }
-
 th,
 td {
   position: relative;
-  border: 1px solid rgb(255, 255, 255);
   padding: 10px;
-  text-align: left;
   font-size: 1em;
 }
 thead {
   background-color: #6b1192;
   color: white;
+  border: 1px solid rgb(175, 104, 197)
+}
+tr:nth-child(even):not(:first-child) {
+  background-color: rgba(211, 211, 211, 0.25);
+}
+
+tr:nth-child(odd):not(:first-child) {
+  background-color: rgba(119, 119, 119, 0.3);
 }
 .ActionButtons button{
   position: relative;
