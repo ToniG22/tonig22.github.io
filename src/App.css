@@ -73,6 +73,41 @@
 }
 
 /* ------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------EVENT DETAILS STYLES---------------------------------------------------- */
+.event-details img{
+  height: 350px;
+  width: 350px;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+.event-details h2 {
+  font-size: 45px;
+  display: inline-block;
+  padding-right: 100px;
+  padding-left: 100px;
+  background-image: linear-gradient(to right, transparent, rgb(168, 22, 168), transparent);
+  background-size: 100% 65px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+}
+
+.event-details h1{
+  font-size: 65px;
+  padding: 0px;
+}
+
+.event-details .titleDescription p{
+  font-size: 20px;
+}
+.subtitles{
+  font-size: 35px;
+}
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
 
 h1 {
   padding: 20px;
@@ -92,13 +127,13 @@ h1 {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1; /* This positions the pseudo-element behind the actual content */
+  z-index: -1;
 
   background-image: url("/BackgroundSGM.jpg");
   background-size: cover;
   animation: pulse 4.5s infinite alternate;
 
-  filter: blur(5px); /* This blurs the background image of the pseudo-element */
+  filter: blur(5px); 
 }
 
 @keyframes pulse {
@@ -267,7 +302,6 @@ li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
   padding-bottom: 100px;
 }
 .FormContainer {
@@ -275,7 +309,7 @@ li a:hover {
   background-color: white;
   border-radius: 18px;
   height: 430.5px;
-  position: relative; /* Añade esta propiedad */
+  position: relative; 
 }
 .LeftForm {
   display: flex;
@@ -317,8 +351,9 @@ input {
   margin-bottom: 20px;
 }
 .LoginButtom {
+  font-family: "Montserrat";
   margin-bottom: 10px;
-  font-weight: 400;
+  font-weight: 600;
   background: #ffffff;
   color: #9315c8;
   padding: 12px 65px;
@@ -434,7 +469,7 @@ form button {
   font-size: 15px;
   border-radius: 6px;
   cursor: pointer;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat";
   overflow: hidden; 
   z-index: 1;
 }
@@ -509,7 +544,7 @@ form button:hover::before {
   border-radius: 6px;
   font-size: 20px;
   cursor: pointer;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat"
 }
 
 /* ------------------------------------------------------------------------------------------------------------- */
@@ -586,12 +621,6 @@ tr:nth-child(odd):not(:first-child) {
 
 .centered-content {
   text-align: center;
-}
-
-.imgEvent {
-  width: 250px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
 }
 
 .tableEvent {
