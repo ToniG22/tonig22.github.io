@@ -665,3 +665,56 @@ td {
   right: 0px;
 }
 
+/* --------------- Home ----------------- */
+.Button-home{
+  background-image: linear-gradient(to left, #b34176, #5e0d80);
+  width: 200px;
+  height: 125px;
+  font-size:xx-large;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-left: 1%;
+  margin-right: 1.5%;
+  float: left;
+}
+
+.Button-home:hover{
+  color:#ffffff;
+  font-size: x-large;
+}
+
+.H1-madeira{
+  font-size:80px;
+  color:#b34176;
+  padding-top: 40px;
+}
+
+.H1-home{
+  font-size:50px;
+  margin:0;
+  padding-right: 7px;
+}
+
+.H2-home{
+  font-size: 40px;
+  margin-left:1%;
+  margin-bottom: 0;
+}
+
+.Home-Float{
+  float:left;
+}
+
+.Home-Box{
+  height: 125px;
+  width: 90%;
+  padding-top: 15px;
+  font-size: 20px;
+}
+
+.H2-block{
+  background-image: linear-gradient(to left, #b34176, #5e0d80);
+  margin: 2%;
+}
