@@ -666,55 +666,91 @@ td {
 }
 
 /* --------------- Home ----------------- */
-.Button-home{
-  background-image: linear-gradient(to left, #b34176, #5e0d80);
+.Button-home {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-image: linear-gradient(to right, #7613a0, #ca2270);
+  color: white;
   width: 200px;
   height: 125px;
-  font-size:xx-large;
+  font-size: 35px;
   border: none;
   border-radius: 25px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  margin-left: 1%;
-  margin-right: 1.5%;
-  float: left;
+  margin: 15px;
+  transition: transform 0.35s ease, background-image 0.55s ease-in;
 }
 
-.Button-home:hover{
-  color:#ffffff;
-  font-size: x-large;
+.Button-home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #b100fd, #f00874);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+
+.Button-home:hover::before {
+  opacity: 1;
+}
+
+.Button-home:hover {
+  transform: translateX(15px);
+  background-image: linear-gradient(to right, #9714cf, #d62276);
+}
+
+header h1{
+  padding:0;
 }
 
 .H1-madeira{
-  font-size:80px;
-  color:#b34176;
-  padding-top: 40px;
+  font-size:75px;
+  background-image: linear-gradient(to right, #ff3694, #9315c8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  width: 350px;
+  margin-left: 20px;
 }
 
-.H1-home{
+.H1-home {
   font-size:50px;
-  margin:0;
-  padding-right: 7px;
+  margin-left: 20px;
 }
-
-.H2-home{
-  font-size: 40px;
-  margin-left:1%;
-  margin-bottom: 0;
-}
-
-.Home-Float{
-  float:left;
+.MiddleH1Home{
+  margin-left: 48px;
 }
 
 .Home-Box{
+  margin: 25px;
   height: 125px;
   width: 90%;
   padding-top: 15px;
-  font-size: 20px;
+  font-size: 23px;
+}
+.HomeDescription{
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .H2-block{
-  background-image: linear-gradient(to left, #b34176, #5e0d80);
-  margin: 2%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.H2-home{
+  display: inline-block;
+  font-size: 50px;
+  padding-right: 300px;
+  padding-left: 300px;
+  background-image: linear-gradient(to right, transparent, rgb(168, 22, 168), transparent);
+  background-size: 100% 85px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
 }
