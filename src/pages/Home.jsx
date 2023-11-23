@@ -16,6 +16,8 @@ const Home = () => {
     reloadEvents();
   }, []);
 
+  console.log(events)
+
   const today = new Date(); // Get today's date
   const startOfWeek = new Date(today);
   const endOfWeek = new Date(today);
@@ -23,14 +25,14 @@ const Home = () => {
   startOfWeek.setDate(startOfWeek.getDate() - 1);
   endOfWeek.setDate(startOfWeek.getDate() + 6);
 
-  console.log("start: ", startOfWeek);
-  console.log("end: ", endOfWeek);
+  //console.log("start: ", startOfWeek);
+  //console.log("end: ", endOfWeek);
 
   // Filter events for the entire week
   const weeklyEvents = events.filter((event) => {
-    const eventDate = new Date(event.dates[0]); // Assuming event.dates[0] is in "YYYY-MM-DD" format
+    const eventDate = new Date(event.endDate); // Assuming event.dates[0] is in "YYYY-MM-DD" format
     // Compare the event date against the entire week
-    return eventDate >= startOfWeek && eventDate <= endOfWeek;
+    return eventDate >= startOfWeek && eventDate <= endOfWeek || {};
   });
   
 
