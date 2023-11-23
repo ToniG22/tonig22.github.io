@@ -27,7 +27,7 @@ function EventDetails() {
       <div className="event-content-container">
         <img src={event.img} alt={event.title} className="imgEvent" />
         <div className="titleDescription">
-          <h2>{event.title}</h2>
+          <h1>{event.title}</h1>
           <p>{event.description}</p>
         </div>
       </div>
@@ -35,9 +35,9 @@ function EventDetails() {
         <div className="centered-content">
           <h2 className="maintitles">Local e Data</h2>
           <div>
-            <h2 className="subtitles">
+            <p className="subtitles">
               {event.location2}, {event.location} a {event.beginDate}
-            </h2>
+            </p>
           </div>
         </div>
       </div>
@@ -79,13 +79,13 @@ function EventDetails() {
         </div>
       </div>
       <div className="event-content-container">
-        <h2 className="subtitles">
+        <h3 className="subtitles">
           <strong> Para mais detalhes, visite o site deste evento: </strong>
           <a href="https://summeropening.pt/" className="link">
             https://summeropening.pt/
           </a>
           .
-        </h2>
+        </h3>
       </div>
     </div>
   );
