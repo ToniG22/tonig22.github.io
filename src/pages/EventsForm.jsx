@@ -17,9 +17,9 @@ const initialFormData = Object.freeze({
   endDate: "",
   spotify: [],
   youtube: [],
-  gallery: "/images/gallery/summeropening/",
+  gallery: "/images/gallery/",
   cartazSource: "/images/placeholder.png",
-  siteUrl: ""
+  siteUrl: "",
 });
 
 const EventsForm = ({
@@ -70,7 +70,7 @@ const EventsForm = ({
       const [year, month, day] = value.split("-");
       value = `${day}-${month}-${year}`;
     }
- */
+ */ 
     if (targetName.includes(".")) {
       const [field, index] = targetName.split(".");
       if (Array.isArray(formData[field])) {
@@ -245,55 +245,55 @@ const EventsForm = ({
       </label>
       <br />
       <div className="MediaContainer">
-      <div className="SpotifyContainer">
-      {formData.spotify.map((spotifyValue, index) => (
-        <div className="AlignRemove" key={index}>
-          <label>
-            Spotify {index + 1}:
-            <input
-              type="text"
-              name={`spotify.${index}`}
-              value={spotifyValue}
-              onChange={handleChange}
-            />
-          </label>
-          <button
-            type="button"
-            onClick={() => handleRemoveField("spotify", index)}
-          >
-            Remove
+        <div className="SpotifyContainer">
+          {formData.spotify.map((spotifyValue, index) => (
+            <div className="AlignRemove" key={index}>
+              <label>
+                Spotify {index + 1}:
+                <input
+                  type="text"
+                  name={`spotify.${index}`}
+                  value={spotifyValue}
+                  onChange={handleChange}
+                />
+              </label>
+              <button
+                type="button"
+                onClick={() => handleRemoveField("spotify", index)}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={() => handleAddField("spotify")}>
+            + Add Spotify
           </button>
         </div>
-      ))}
-      <button type="button" onClick={() => handleAddField("spotify")}>
-        + Add Spotify
-      </button>
-      </div>
-      <br />
-      <div className="SpotifyContainer">
-      {formData.youtube.map((youtubeValue, index) => (
-        <div className="AlignRemove" key={index}>
-          <label>
-            Youtube {index + 1}:
-            <input
-              type="text"
-              name={`youtube.${index}`}
-              value={youtubeValue}
-              onChange={handleChange}
-            />
-          </label>
-          <button
-            type="button"
-            onClick={() => handleRemoveField("youtube", index)}
-          >
-            Remove
+        <br />
+        <div className="SpotifyContainer">
+          {formData.youtube.map((youtubeValue, index) => (
+            <div className="AlignRemove" key={index}>
+              <label>
+                Youtube {index + 1}:
+                <input
+                  type="text"
+                  name={`youtube.${index}`}
+                  value={youtubeValue}
+                  onChange={handleChange}
+                />
+              </label>
+              <button
+                type="button"
+                onClick={() => handleRemoveField("youtube", index)}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={() => handleAddField("youtube")}>
+            + Add youtube
           </button>
         </div>
-      ))}
-      <button type="button" onClick={() => handleAddField("youtube")}>
-        + Add youtube
-      </button>
-      </div>
       </div>
       <br />
       <label>
@@ -329,10 +329,10 @@ const EventsForm = ({
       <label>
         Site Url:
         <input
-        type="text"
-        name="siteUrl"
-        value={formData.siteUrl}
-        onChange={handleChange}
+          type="text"
+          name="siteUrl"
+          value={formData.siteUrl}
+          onChange={handleChange}
         />
       </label>
       <div className="buttonContainer">
@@ -357,7 +357,6 @@ const EventsForm = ({
             Cancel
           </button>
         )}
-        
       </div>
     </form>
   );

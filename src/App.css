@@ -97,15 +97,40 @@
   padding: 0px;
 }
 
-.event-details .titleDescription p{
+.titleDescription {
   font-size: 20px;
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  word-break: break-all; 
+  max-width: 100%; 
+  margin-left: 20px;
+}
+.titleDescription p {
+margin-left: 50px; 
 }
 .subtitles{
   font-size: 35px;
 }
 
+iframe{
+  border-radius: 25px;
+}
 
+.YoutubeVideo{
+  margin: 20px;
+  background: #ff3694;
+  background: radial-gradient(circle farthest-corner at bottom right, #ff3694 3%, rgb(96, 10, 132) 90%);
+  background: -webkit-radial-gradient(circle farthest-corner at bottom right, #ff3694 3%, rgb(96, 10, 132) 90%);
+  background: -moz-radial-gradient(circle farthest-corner at bottom right, #ff3694 3%, rgb(96, 10, 132) 90%);
+  padding: 30px;
+  border-radius: 25px
+}
 
+.YoutubeContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 /* ------------------------------------------------------------------------------------------------------------- */
 
@@ -304,6 +329,11 @@ li a:hover {
   justify-content: space-between;
   align-items: flex-start;
   margin: 2%;
+}
+.MapTitle h1{
+  font-size: 55px;
+  padding: 0;
+  margin-left: 25px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------- */
@@ -614,12 +644,6 @@ tr:nth-child(odd):not(:first-child) {
 
 
 /* ------------------------------------------------------------------------------------------------------------- */
-
-.titleDescription {
-  margin-left: 2%;
-  text-align: justify;
-}
-
 .subtitles {
   font-weight: normal;
 }
@@ -731,7 +755,7 @@ header h1{
 
 .H1-home {
   font-size:50px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .MiddleH1Home{
   margin-left: 48px;
