@@ -1,14 +1,27 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Spotify } from "react-spotify-embed";
+import { Carousel } from "react-responsive-carousel";
+import YouTube from "react-youtube";
+import getYoutubeId from "get-youtube-id";
 
 function EventDetails() {
   const [events, setEvents] = useState([]);
+  const [numberOfImages, setNumberOfImages] = useState(0);
+  const [youtubeVideoIds, setYoutubeVideoIds] = useState([]);
 
   const reloadEvents = () => {
     const storedEvents = localStorage.getItem("events");
     const parsedEvents = storedEvents ? JSON.parse(storedEvents) : [];
     setEvents(parsedEvents);
+  };
+
+  const opts = {
+    height: '360',
+    width: '600',
+    playerVars: {
+      autoplay: 0,
+    },
   };
 
   useEffect(() => {
@@ -17,6 +30,13 @@ function EventDetails() {
 
   const { id } = useParams();
   const event = events.find((e) => e.id === parseInt(id, 10));
+
+  useEffect(() => {
+    if (event && event.youtube && event.youtube.length > 0) {
+      const youtubeIds = event.youtube.map((link) => getYoutubeId(link)).filter(Boolean);
+      setYoutubeVideoIds(youtubeIds);
+    }
+  }, [event]);
 
   if (!event) {
     return <div>Event not found!</div>;
@@ -37,6 +57,7 @@ function EventDetails() {
           <div>
             <p className="subtitles">
               {event.location2}, {event.location} a {event.beginDate}
+              
             </p>
           </div>
         </div>
@@ -44,7 +65,16 @@ function EventDetails() {
       <div>
         <div className="centered-content">
           <h2 className="maintitles">Galeria</h2>
-          <div>---</div>
+          <Carousel>
+            {Array.from({ length: numberOfImages }).map((_, index) => (
+              <div key={index}>
+                <img
+                  src={`${event.gallery}/${event.id}/${index + 1}.jpg`}
+                  alt={`Event Image ${index + 1}`}
+                />
+              </div>
+            ))}
+          </Carousel>
         </div>
       </div>
       <div>
@@ -70,12 +100,24 @@ function EventDetails() {
       </div>
       <div>
         <div className="centered-content">
-          <h2 className="maintitles">Música que poderá ouvir no festival</h2>
           <div className="spotifyContainer">
             {event.spotify && event.spotify.length > 0
-              ? event.spotify.map((link, index) => <Spotify className="Spotify" wide key={index} link={link} />)
+              ? event.spotify.map((link, index) => (
+                  <Spotify className="Spotify" wide key={index} link={link} />
+                ))
               : null}
           </div>
+        </div>
+        <div className="centered-content">
+          <h2 className="maintitles">Mais Informação do Evento</h2>
+          <div className="YoutubeContainer">
+          {youtubeVideoIds.map((videoId, index) => (
+            <div className="YoutubeVideo" key={index}>
+              <YouTube videoId={videoId} opts={opts} />
+            </div>
+          ))}
+          
+        </div>
         </div>
       </div>
       <div className="event-content-container">

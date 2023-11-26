@@ -12,7 +12,7 @@ const Admin = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "admin" && password === "anacachopaulo") {
+    if (username === "admin" && password === "123") {
       setAuthenticated(true);
     } else {
       alert("Incorrect username or password!");

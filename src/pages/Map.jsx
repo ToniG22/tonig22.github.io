@@ -116,7 +116,7 @@ const Map = () => {
         </div>
       )}
       {selectedLocation && (
-        <div>
+        <div className="MapTitle">
           <h1>Festivais</h1>
           {locationEventsFestivais.length > 0 ? (
             <EventsGrid events={locationEventsFestivais} />
