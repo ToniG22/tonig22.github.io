@@ -67,7 +67,6 @@ const Map = () => {
       top: "365px",
       left: "233px",
     },
-    // ... add other locations as needed
   };
 
   var [selectedLocation, setSelectedLocation] = useState("");
@@ -82,11 +81,20 @@ const Map = () => {
 
   return (
     <div>
+      
       {!selectedLocation && (
         <div>
-          <h1 className="title">Escolha a freguesia:</h1>
+          <h1 className="title"> Escolha a freguesia: </h1>
           <div className="mapPos">
-            {Object.values(localidades).map((location, index) => (
+          {Object.values(localidades)
+            .filter((location) =>
+              events.some(
+                (event) =>
+                  event.location === location.name &&
+                  (event.type === "festivais" || event.type === "arraiais")
+              )
+            )
+            .map((location, index) => (
               <div
                 className="mapNeedle"
                 style={{
@@ -111,10 +119,11 @@ const Map = () => {
                   }`}
                 />
               </div>
-            ))}
+        ))}
           </div>
         </div>
       )}
+
       {selectedLocation && (
         <div>
           <h1>Festivais</h1>

@@ -70,7 +70,6 @@ function EventDetails() {
       </div>
       <div>
         <div className="centered-content">
-          <h2 className="maintitles">Música que poderá ouvir no festival</h2>
           <div className="spotifyContainer">
             {event.spotify && event.spotify.length > 0
               ? event.spotify.map((link, index) => <Spotify className="Spotify" wide key={index} link={link} />)
