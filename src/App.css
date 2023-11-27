@@ -301,6 +301,17 @@ li a:hover {
 
 .locationButton {
   display: none;
+  font-family: "Montserrat";
+  margin-bottom: 10px;
+  font-weight: 600;
+  background: #ffffff;
+  color: #9315c8;
+  padding: 12px 65px;
+  border: 2px solid;
+  border-color: #9315c8;
+  border-radius: 30px;
+  cursor: pointer;
+
 }
 
 .mapNeedle .ciLocationOn {
