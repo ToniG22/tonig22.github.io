@@ -7,7 +7,6 @@ import Gallery from "../components/Gallery";
 
 function EventDetails() {
   const [events, setEvents] = useState([]);
-  const [numberOfImages, setNumberOfImages] = useState(0);
   const [youtubeVideoIds, setYoutubeVideoIds] = useState([]);
 
   const reloadEvents = () => {

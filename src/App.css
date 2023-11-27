@@ -111,6 +111,63 @@ margin-left: 50px;
 .subtitles{
   font-size: 35px;
 }
+.carousel-container {
+  width: 62%; 
+  margin: 0 auto; 
+  overflow: hidden; 
+}
+.carousel {
+  display: flex; 
+  transition: transform 0.5s ease; 
+}
+.slide {
+  min-width: 100%; 
+}
+.slide img {
+  width: 70%; 
+  height: auto;
+}
+
+.carousel-container button {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  transition: background-color 0.35s;
+}
+.carouselButtons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.carousel-container button:hover{
+ background-color: #f32ae9;
+}
+
+.carouselButtons img{
+  width: 30px;
+  height: 20px;
+  padding: 14px;
+}
+.carouselButtons span{
+  font-size: 23px;
+  font-weight: 600;
+  color:#6b1192;
+}
+.NextButton{
+  margin-left: 45px;
+}
+.NextButton span{
+  margin-left: 8px;
+}
+.PrevButton{
+  margin-right: 45px;
+}
+.PrevButton span{
+  margin-right: 8px;
+}
 
 iframe{
   border-radius: 25px;
@@ -315,7 +372,7 @@ li a:hover {
 }
 
 .mapNeedle .ciLocationOn {
-  transition: opacity 0.3s; /* Add a transition for a smooth effect */
+  transition: opacity 0.5s; /* Add a transition for a smooth effect */
 }
 
 .mapNeedle:hover .ciLocationOn {
@@ -708,7 +765,7 @@ td {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background-image: linear-gradient(to right, #7613a0, #ca2270);
+  background-image: linear-gradient(to right, #6a0f91, #bd22b6);
   color: white;
   width: 200px;
   height: 125px;
@@ -727,7 +784,7 @@ td {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to right, #b100fd, #f00874);
+  background-image: linear-gradient(to right, #7e12ac, #e518da);
   opacity: 0;
   z-index: -1;
   transition: opacity 0.3s;
@@ -739,7 +796,7 @@ td {
 
 .Button-home:hover {
   transform: translateX(15px);
-  background-image: linear-gradient(to right, #9714cf, #d62276);
+  background-image: linear-gradient(to right, #7e12ac, #e518da);
 }
 
 header h1{
@@ -779,8 +836,8 @@ header h1{
 
 
 .H1-madeira{
-  font-size:75px;
-  background-image: linear-gradient(to right, #ff3694, #9315c8);
+  font-size:85px;
+  background-image: linear-gradient(to right, #f32ae9, #9315c8);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
