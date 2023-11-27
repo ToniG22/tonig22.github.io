@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Spotify } from "react-spotify-embed";
-import { Carousel } from "react-responsive-carousel";
 import YouTube from "react-youtube";
 import getYoutubeId from "get-youtube-id";
 
@@ -17,8 +16,8 @@ function EventDetails() {
   };
 
   const opts = {
-    height: '360',
-    width: '600',
+    height: "360",
+    width: "600",
     playerVars: {
       autoplay: 0,
     },
@@ -33,7 +32,9 @@ function EventDetails() {
 
   useEffect(() => {
     if (event && event.youtube && event.youtube.length > 0) {
-      const youtubeIds = event.youtube.map((link) => getYoutubeId(link)).filter(Boolean);
+      const youtubeIds = event.youtube
+        .map((link) => getYoutubeId(link))
+        .filter(Boolean);
       setYoutubeVideoIds(youtubeIds);
     }
   }, [event]);
@@ -57,7 +58,6 @@ function EventDetails() {
           <div>
             <p className="subtitles">
               {event.location2}, {event.location} a {event.beginDate}
-              
             </p>
           </div>
         </div>
@@ -65,16 +65,15 @@ function EventDetails() {
       <div>
         <div className="centered-content">
           <h2 className="maintitles">Galeria</h2>
-          <Carousel>
-            {Array.from({ length: numberOfImages }).map((_, index) => (
-              <div key={index}>
-                <img
-                  src={`${event.gallery}/${event.id}/${index + 1}.jpg`}
-                  alt={`Event Image ${index + 1}`}
-                />
-              </div>
-            ))}
-          </Carousel>
+          <div> 
+          {Array.from({ length: event.numberOfImages }).map((_, index) => (
+      <img
+        key={index}
+        src={`${event.gallery}/${event.id}/${index + 1}.jpg`}
+        alt={`Image ${index + 1}`}
+      />
+    ))}
+          </div>
         </div>
       </div>
       <div>
@@ -111,13 +110,12 @@ function EventDetails() {
         <div className="centered-content">
           <h2 className="maintitles">Mais Informação do Evento</h2>
           <div className="YoutubeContainer">
-          {youtubeVideoIds.map((videoId, index) => (
-            <div className="YoutubeVideo" key={index}>
-              <YouTube videoId={videoId} opts={opts} />
-            </div>
-          ))}
-          
-        </div>
+            {youtubeVideoIds.map((videoId, index) => (
+              <div className="YoutubeVideo" key={index}>
+                <YouTube videoId={videoId} opts={opts} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="event-content-container">

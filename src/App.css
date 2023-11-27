@@ -599,6 +599,9 @@ td {
   position: relative;
   padding: 10px;
   font-size: 1em;
+  max-width: 105px !important;
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
 }
 thead {
   background-color: #6b1192;
@@ -732,6 +735,38 @@ header h1{
   padding:0;
 }
 
+.link-imagen {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-imagen img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.link-imagen:hover img {
+  transform: scale(1.1);
+  opacity: 0.6;
+}
+
+.texto-hover {
+  position: absolute;
+  width: 450px;
+  top: 48%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  color: white;
+  font-size: 25px;
+}
+
+.link-imagen:hover .texto-hover {
+  opacity: 1;
+}
+
+
 .H1-madeira{
   font-size:75px;
   background-image: linear-gradient(to right, #ff3694, #9315c8);
@@ -743,9 +778,17 @@ header h1{
 }
 
 .H1-home {
-  font-size:50px;
+  font-size:55px;
   margin-left: 30px;
+  display: flex;
 }
+.H1-home img{
+  width: 650px;
+  height: 260px;
+  margin-left: 220px;
+  margin-top: 20px;
+}
+
 .MiddleH1Home{
   margin-left: 48px;
 }

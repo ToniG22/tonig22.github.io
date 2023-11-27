@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
 import EventsGrid from "./EventsGrid";
 
 const Home = () => {
@@ -33,17 +33,24 @@ const Home = () => {
     // Compare the event date against the entire week
     return (eventDate >= startOfWeek && eventDate <= endOfWeek) || {};
   });
-  
 
   return (
     <div>
       <header>
-        <h1>       
-            <div className="H1-home">
-              <div>Melhores eventos</div> 
-              <div className="MiddleH1Home">culturais na ilha da</div> 
+        <h1>
+          <div className="H1-home">
+            <div>
+              <div>Melhores eventos</div>
+              <div className="MiddleH1Home">culturais na ilha da</div>
               <div className="H1-madeira"> Madeira </div>
             </div>
+            <NavLink to="/mapa" className="link-imagen">
+              <img src="../../public/madeiraMapa.png" alt="Mapa de Madeira" />
+              <span className="texto-hover">
+                Veja os eventos na sua localidade!
+              </span>
+            </NavLink>
+          </div>
         </h1>
       </header>
 
@@ -82,18 +89,6 @@ const Home = () => {
               considerados festas curtas que unem devoção religiosa e cultura
               popular, proporcionando momentos de alegria para as comunidades
               locais.
-            </p>
-          </div>
-          <div className="HomeDescription">
-            <NavLink to="mapa">
-              <button className="Button-home">
-                <b>Mapa</b>
-              </button>
-            </NavLink>
-            <p className="Home-Box">
-              Aqui poderá ver os eventos que estão a decorrer na ilha da
-              Madeira, seja arraiais ou festivais. Poderá encontrar os eventos
-              que estão a decorrer na freguesia que escolheu.
             </p>
           </div>
         </section>
