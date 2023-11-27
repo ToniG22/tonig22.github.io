@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Spotify } from "react-spotify-embed";
 import YouTube from "react-youtube";
 import getYoutubeId from "get-youtube-id";
+import Gallery from "../components/Gallery";
 
 function EventDetails() {
   const [events, setEvents] = useState([]);
@@ -65,14 +66,8 @@ function EventDetails() {
       <div>
         <div className="centered-content">
           <h2 className="maintitles">Galeria</h2>
-          <div> 
-          {Array.from({ length: event.numberOfImages }).map((_, index) => (
-      <img
-        key={index}
-        src={`${event.gallery}/${event.id}/${index + 1}.jpg`}
-        alt={`Image ${index + 1}`}
-      />
-    ))}
+          <div>
+            <Gallery galleryPath={event.gallery} />
           </div>
         </div>
       </div>

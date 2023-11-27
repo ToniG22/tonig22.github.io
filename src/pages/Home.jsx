@@ -45,7 +45,7 @@ const Home = () => {
               <div className="H1-madeira"> Madeira </div>
             </div>
             <NavLink to="/mapa" className="link-imagen">
-              <img src="../../public/madeiraMapa.png" alt="Mapa de Madeira" />
+              <img src="/madeiraMapa.png" alt="Mapa de Madeira" />
               <span className="texto-hover">
                 Veja os eventos na sua localidade!
               </span>
