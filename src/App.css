@@ -31,7 +31,7 @@
   text-decoration: none;
 }
 .NavBarLinks a:hover {
-  background-image: linear-gradient(to bottom, #ff3694, #9315c8);
+  background-image: linear-gradient(to bottom, #f32ae9, #9315c8);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -110,6 +110,7 @@ margin-left: 50px;
 }
 .subtitles{
   font-size: 35px;
+  margin:10px;
 }
 .carousel-container {
   width: 62%; 
@@ -134,16 +135,17 @@ margin-left: 50px;
   cursor: pointer;
   border-radius: 25px;
   border: none;
-  transition: background-color 0.35s;
+  transition: transform 0.3s;
 }
 .carouselButtons{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
   
 }
 .carousel-container button:hover{
- background-color: #f32ae9;
+  transform: scale(1.1);
 }
 
 .carouselButtons img{
@@ -175,10 +177,10 @@ iframe{
 
 .YoutubeVideo{
   margin: 20px;
-  background: #ff3694;
-  background: radial-gradient(circle farthest-corner at bottom right, #ff3694 3%, rgb(96, 10, 132) 90%);
-  background: -webkit-radial-gradient(circle farthest-corner at bottom right, #ff3694 3%, rgb(96, 10, 132) 90%);
-  background: -moz-radial-gradient(circle farthest-corner at bottom right, #ff3694 3%, rgb(96, 10, 132) 90%);
+  background: #f32ae9;
+  background: radial-gradient(circle farthest-corner at bottom right, #f32ae9 3%, rgb(96, 10, 132) 90%);
+  background: -webkit-radial-gradient(circle farthest-corner at bottom right, #f32ae9 3%, rgb(96, 10, 132) 90%);
+  background: -moz-radial-gradient(circle farthest-corner at bottom right, #f32ae9 3%, rgb(96, 10, 132) 90%);
   padding: 30px;
   border-radius: 25px
 }
@@ -187,6 +189,33 @@ iframe{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.event-content-container-link{
+  margin-top: 80px;
+  text-align: center;
+}
+.event-content-container-link .subtitles{
+  margin:10px;
+}
+
+.EventLink {
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 30px 80px;
+  border: none;
+  border-radius: 35px;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #8919b9;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.EventLink:hover {
+  transform: scale(1.1);
+  background-color: #8919b9;
+  color: #ffffff;
 }
 
 /* ------------------------------------------------------------------------------------------------------------- */
@@ -283,8 +312,7 @@ li a:hover {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid #ddd; /* A light border around each card */
-  border-radius: 4px; /* Rounded corners for each card */
+  border-radius: 10px; /* Rounded corners for each card */
   transition: transform 0.3s ease; /* Optional: A little scale effect on hover */
 }
 
@@ -461,7 +489,7 @@ input {
   cursor: pointer;
 }
 .LoginButtom:hover {
-  background-image: linear-gradient(to bottom, #9315c8, #ff3694);
+  background-image: linear-gradient(to bottom, #9315c8, #f32ae9);
   border: 2px solid #9315c8;
   color: white;
   transition: color 0.45s;
@@ -491,8 +519,8 @@ form {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 4px 4px 5px,#333;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
   border: 1px solid rgb(209, 209, 209);
   color: #ffffff;
 }
@@ -579,7 +607,7 @@ form button::before {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to bottom, #9315c8, #ff3694);
+  background-image: linear-gradient(to bottom, #9315c8, #f32ae9);
   opacity: 0;
   z-index: -1;
   transition: opacity 0.2s;
@@ -601,20 +629,25 @@ form button:hover::before {
   display: none;
 }
 .fileInputLabel {
-  padding: 10px 10px;
+  text-align: center;
+  padding: 12px 10px;
   background-color:#9315c8;
   margin: 10px 15px 10px 15px;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: normal;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
+.CancelButton{
+ padding: 18px 27px 18px 18px;
+ text-align: center;
+}
 .fileInputLabel::before {
   content: '';
   position: absolute;
@@ -622,7 +655,7 @@ form button:hover::before {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to bottom, #9315c8, #ff3694);
+  background-image: linear-gradient(to bottom, #9315c8, #f32ae9);
   opacity: 0;
   z-index: -1;
   transition: opacity 0.3s;

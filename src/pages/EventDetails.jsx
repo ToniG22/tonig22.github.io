@@ -46,7 +46,7 @@ function EventDetails() {
   return (
     <div className="event-details">
       <div className="event-content-container">
-        <img src={event.img} alt={event.title} className="imgEvent" />
+        <img src={event.cartazSource} alt={event.title} className="imgEvent" />
         <div className="titleDescription">
           <h1>{event.title}</h1>
           <p>{event.description}</p>
@@ -112,14 +112,13 @@ function EventDetails() {
           </div>
         </div>
       </div>
-      <div className="event-content-container">
+      <div className="event-content-container-link">
         <h3 className="subtitles">
           <strong> Para mais detalhes, visite o site deste evento: </strong>
-          <a href="https://summeropening.pt/" className="link">
-            https://summeropening.pt/
+          </h3>
+          <a href={event.siteUrl} className="link">
+            <button className="EventLink">Ir ao Site do Evento</button>
           </a>
-          .
-        </h3>
       </div>
     </div>
   );

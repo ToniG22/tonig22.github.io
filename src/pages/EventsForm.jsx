@@ -11,14 +11,14 @@ const initialFormData = Object.freeze({
   },
   location: "Funchal",
   location2: "",
-  img: "/images/placeholder.png",
+  img: "/images/",
   type: "festivais",
   beginDate: "",
   endDate: "",
   spotify: [],
   youtube: [],
   gallery: "/images/gallery/",
-  cartazSource: "/images/placeholder.png",
+  cartazSource: "/images/",
   siteUrl: "",
 });
 
@@ -205,7 +205,7 @@ const EventsForm = ({
       </label>
       <br />
       <label>
-        Location 2:
+        L#890cbe 2:
         <input
           type="text"
           name="location2"
@@ -353,7 +353,7 @@ const EventsForm = ({
           Import from JSON
         </label>
         {editingEvent && (
-          <button type="button" onClick={handleReset}>
+          <button className="CancelButton" type="button" onClick={handleReset}>
             Cancel
           </button>
         )}
