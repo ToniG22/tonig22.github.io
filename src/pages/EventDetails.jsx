@@ -57,18 +57,20 @@ function EventDetails() {
           <h2 className="maintitles">Local e Data</h2>
           <div>
             <p className="subtitles">
-              {event.location2}, {event.location} a {event.beginDate}
+              {event.location2}, {event.location} de {event.beginDate} a {event.endDate}
             </p>
           </div>
         </div>
       </div>
       <div>
+      {event.gallery !== "" && (
         <div className="centered-content">
           <h2 className="maintitles">Galeria</h2>
           <div>
             <Gallery galleryPath={event.gallery} />
           </div>
         </div>
+      )}
       </div>
       <div>
         <div className="centered-content">
@@ -101,6 +103,7 @@ function EventDetails() {
               : null}
           </div>
         </div>
+        {youtubeVideoIds.length > 0 && (
         <div className="centered-content">
           <h2 className="maintitles">Mais Informação do Evento</h2>
           <div className="YoutubeContainer">
@@ -111,7 +114,9 @@ function EventDetails() {
             ))}
           </div>
         </div>
+        )}
       </div>
+      {event.siteUrl !== "" && (
       <div className="event-content-container-link">
         <h3 className="subtitles">
           <strong> Para mais detalhes, visite o site deste evento: </strong>
@@ -120,6 +125,8 @@ function EventDetails() {
             <button className="EventLink">Ir ao Site do Evento</button>
           </a>
       </div>
+      )}
+      <br></br>   {/* THE MOST IMPORTANT LINE OF CODE OF THE ENTIRE PROGRAM, DO NOT REMOVE, I REPEAT DO NOT REMOVE OR IT STOPS WORKING */}
     </div>
   );
 }

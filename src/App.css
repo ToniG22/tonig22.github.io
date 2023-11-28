@@ -328,6 +328,8 @@ li a:hover {
 }
 
 .event-card .hover-overlay {
+  text-align: justify;
+  padding: 20px;
   position: absolute;
   top: 0;
   left: 0;
