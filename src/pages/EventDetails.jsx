@@ -57,7 +57,7 @@ function EventDetails() {
           <h2 className="maintitles">Local e Data</h2>
           <div>
             <p className="subtitles">
-              {event.location2}, {event.location} a {event.beginDate}
+            {event.location}, {event.location2} de {event.beginDate} - {event.endDate}
             </p>
           </div>
         </div>

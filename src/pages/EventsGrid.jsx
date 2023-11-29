@@ -14,7 +14,11 @@ function EventsGrid({ events }) {
             // Use the event type in the link to determine the route "festivals/" or "arraiais/"
             onClick={() => navigate(`/${event.type}/${event.id}`)}
           >
-            <img src={event.img} alt={event.title} />
+            <img
+              src={event.img}
+              alt={event.title}
+              style={{ width: "300px", height: "250px" }}
+            />
             <div className="hover-overlay">
               {event.title} - {event.location2} <br></br>
               Mostrar mais...

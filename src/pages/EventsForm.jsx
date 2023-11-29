@@ -205,7 +205,7 @@ const EventsForm = ({
       </label>
       <br />
       <label>
-        L#890cbe 2:
+        Localidade:
         <input
           type="text"
           name="location2"
