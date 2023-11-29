@@ -205,7 +205,7 @@ const EventsForm = ({
       </label>
       <br />
       <label>
-        Localidade:
+        Localidade 2:
         <input
           type="text"
           name="location2"
@@ -215,7 +215,7 @@ const EventsForm = ({
       </label>
       <br />
       <label>
-        RODESTE Transport:
+        RODOESTE Transport:
         <input
           type="text"
           name="transports.rodeste"
