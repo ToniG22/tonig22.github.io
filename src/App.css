@@ -99,9 +99,6 @@
 
 .titleDescription {
   font-size: 20px;
-  overflow-wrap: break-word; 
-  word-wrap: break-word; 
-  word-break: break-all; 
   max-width: 100%; 
   margin-left: 20px;
 }
