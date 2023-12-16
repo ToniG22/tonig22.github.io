@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import LeftIcon from "../src/assets/LeftIcon.png";
-import RightIcon from "../src/assets/RightIcon.png";
+import LeftIcon from "../src/public/LeftIcon.png";
+import RightIcon from "../src/public/RightIcon.png";
 
 const Gallery = ({ galleryPath }) => {
   const [galleryImages, setGalleryImages] = useState([]);
