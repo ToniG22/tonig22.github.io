@@ -95,7 +95,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <div className="wrapper" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', filter: 'blur(5px)' }}>
+      <div className="wrapper">
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route path="/" index element={<Home />} />
