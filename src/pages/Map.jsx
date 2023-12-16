@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EventsGrid from "./EventsGrid";
 import { CiLocationOn } from "react-icons/ci";
+import backgroundImage from '../../public/madeiraMapa.png';
 
 const Map = () => {
 
@@ -85,7 +86,7 @@ const Map = () => {
       {!selectedLocation && (
         <div>
           <h1 className="title"> Escolha a freguesia: </h1>
-          <div className="mapPos">
+          <div className="mapPos" style={{ backgroundImage: `url(${backgroundImage})` }}>
           {Object.values(localidades)
             .filter((location) =>
               events.some(

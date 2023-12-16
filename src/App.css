@@ -349,7 +349,6 @@ li a:hover {
 /* ----------- Mapa ----------- */
 
 .mapPos {
-  background-image: url("madeiraMapa.png");
   background-repeat: no-repeat;
   background-size: cover;
   top: 0;
