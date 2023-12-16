@@ -8,6 +8,7 @@ import Festivais from "./pages/Festivals";
 import Map from "./pages/Map";
 import EventDetails from "./pages/EventDetails";
 import { useEffect } from "react";
+import backgroundImage from '../public/BackgroundSGM.jpg'
 import "./App.css";
 
 function App() {
@@ -94,7 +95,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="wrapper">
+      <div className="wrapper" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', filter: 'blur(5px)' }}>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route path="/" index element={<Home />} />
