@@ -924,3 +924,7 @@ header h1{
   background-repeat: no-repeat;
   background-position: 0 100%;
 }
+
+.noEvents{
+  margin: 30px;
+}

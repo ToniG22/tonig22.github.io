@@ -130,7 +130,7 @@ const Map = () => {
           {locationEventsFestivais.length > 0 ? (
             <EventsGrid events={locationEventsFestivais} />
           ) : (
-            <p>
+            <p className="noEvents">
               Não existem festivais a ocorrer na localidade: {selectedLocation}.
             </p>
           )}
@@ -138,7 +138,7 @@ const Map = () => {
           {locationEventsArraiais.length > 0 ? (
             <EventsGrid events={locationEventsArraiais} />
           ) : (
-            <p>
+            <p className="noEvents">
               Não existem arraiais a ocorrer na localidade: {selectedLocation}.
             </p>
           )}

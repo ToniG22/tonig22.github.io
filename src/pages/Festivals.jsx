@@ -20,7 +20,11 @@ const Festivais = () => {
   return (
     <div>
       <h1>Festivais</h1>
-      <EventsGrid events={festivaisEvents} />
+      {festivaisEvents.length === 0 ? (
+        <p className="noEvents">Não existem festivais disponíveis de momento!</p>
+      ) : (
+        <EventsGrid events={festivaisEvents} />
+      )}
     </div>
   );
 };

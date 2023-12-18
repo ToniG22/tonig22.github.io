@@ -23,7 +23,11 @@ const Arraiais = () => {
   return (
     <div>
       <h1>Arraiais</h1>
-      <EventsGrid events={arraiaisEvents} />
+      {arraiaisEvents.length === 0 ? (
+        <p>Não existem arraiais disponíveis de momento!</p>
+      ) : (
+        <EventsGrid events={festivaisEvents} />
+      )}
     </div>
   );
 };
