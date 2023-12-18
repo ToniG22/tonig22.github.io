@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import LeftIcon from "../../public/LeftIcon.png";
+import RightIcon from "../../public/RightIcon.png";
 
 const Gallery = ({ galleryPath }) => {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -40,8 +42,8 @@ const Gallery = ({ galleryPath }) => {
         ))}
       </div>
       <div className="carouselButtons">
-        <button className="PrevButton" onClick={handlePrev}> <img src="../src/assets/LeftIcon.png"/> <span>Prev</span>  </button>
-        <button className="NextButton" onClick={handleNext}> <span>Next</span> <img src="../src/assets/RightIcon.png"/> </button>
+        <button className="PrevButton" onClick={handlePrev}> <img src={LeftIcon}/> <span>Prev</span>  </button>
+        <button className="NextButton" onClick={handleNext}> <span>Next</span> <img src={RightIcon}/> </button>
       </div>
     </div>
   );

@@ -99,14 +99,8 @@
 
 .titleDescription {
   font-size: 20px;
-  overflow-wrap: break-word; 
-  word-wrap: break-word; 
-  word-break: break-all; 
   max-width: 100%; 
   margin-left: 20px;
-}
-.titleDescription p {
-margin-left: 50px; 
 }
 .subtitles{
   font-size: 35px;
@@ -125,8 +119,8 @@ margin-left: 50px;
   min-width: 100%; 
 }
 .slide img {
-  width: 70%; 
-  height: auto;
+  width: 800px; 
+  height: 600px;
 }
 
 .carousel-container button {
@@ -355,7 +349,6 @@ li a:hover {
 /* ----------- Mapa ----------- */
 
 .mapPos {
-  background-image: url("madeiraMapa.png");
   background-repeat: no-repeat;
   background-size: cover;
   top: 0;
