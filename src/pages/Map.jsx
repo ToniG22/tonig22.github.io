@@ -143,7 +143,7 @@ const Map = () => {
               Não existem arraiais a ocorrer na localidade: {selectedLocation}.
             </p>
           )}
-          <button onClick={() => setSelectedLocation("")}>
+          <button className="EventLink voltarAtras" onClick={() => setSelectedLocation("")}>
             Voltar ao mapa
           </button>
         </div>
