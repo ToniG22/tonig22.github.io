@@ -402,6 +402,18 @@ li a:hover {
   opacity: 0;
 }
 
+.mapLegend {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.mapLegendItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* ----------- Página dos eventos ----------- */
 
 .event-content-container {
