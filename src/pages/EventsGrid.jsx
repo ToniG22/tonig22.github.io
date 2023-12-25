@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function EventsGrid({ events }) {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredEvents = events.filter((event) =>
+    event.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="events-container">
+      {/* Search Bar */}
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Qual evento?"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+
       <div className="events-grid">
-        {events.map((event) => (
+        {filteredEvents.map((event) => (
           <div
             key={event.id}
             className="event-card"
-            // Use the event type in the link to determine the route "festivals/" or "arraiais/"
             onClick={() => navigate(`/${event.type}/${event.id}`)}
           >
             <img
@@ -20,9 +34,8 @@ function EventsGrid({ events }) {
               style={{ width: "300px", height: "250px" }}
             />
             <div className="hover-overlay">
-              {event.title} - {event.location2} <br></br>
+              {event.title} - {event.location2} <br />
               Mostrar mais...
-              {/* Maybe we'll need to put this in Portuguese 🩻 */}
             </div>
           </div>
         ))}
