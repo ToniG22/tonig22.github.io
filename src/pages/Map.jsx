@@ -151,7 +151,7 @@ const Map = () => {
           </div>
           <div className="mapLegend">
             <p className="mapLegendItem"><CiLocationOn size={25} fill="white"></CiLocationOn> - Eventos brevemente!</p>
-            <p className="mapLegendItem"><CiLocationOn size={25} fill="#FEDB39"></CiLocationOn> - Events próxima semana!</p>
+            <p className="mapLegendItem"><CiLocationOn size={25} fill="#FEDB39"></CiLocationOn> - Eventos próxima semana!</p>
           </div>
         </div>
         
