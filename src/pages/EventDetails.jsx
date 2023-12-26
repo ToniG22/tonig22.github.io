@@ -49,7 +49,7 @@ function EventDetails() {
         <img src={event.cartazSource} alt={event.title} className="imgEvent" />
         <div className="titleDescription">
           <h1>{event.title}</h1>
-          <p>{event.description}</p>
+          <p className="description">{event.description}</p>
         </div>
       </div>
       <div>

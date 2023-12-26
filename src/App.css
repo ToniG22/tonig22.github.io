@@ -929,3 +929,7 @@ header h1{
   padding: 20px;
   margin: 30px;
 }
+
+.description{
+  text-align: justify;
+}

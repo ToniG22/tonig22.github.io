@@ -42,8 +42,8 @@ const Gallery = ({ galleryPath }) => {
         ))}
       </div>
       <div className="carouselButtons">
-        <button className="PrevButton" onClick={handlePrev}> <img src={LeftIcon}/> <span>Prev</span>  </button>
-        <button className="NextButton" onClick={handleNext}> <span>Next</span> <img src={RightIcon}/> </button>
+        <button className="PrevButton" onClick={handlePrev}> <img src={LeftIcon}/> <span>Anterior</span>  </button>
+        <button className="NextButton" onClick={handleNext}> <span>Próximo</span> <img src={RightIcon}/> </button>
       </div>
     </div>
   );
