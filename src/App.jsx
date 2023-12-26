@@ -83,7 +83,22 @@ function App() {
           "gallery": "/images/gallery/SP",
           "cartazSource": "/images/SPPoster.jpg",
           "siteUrl": "https://eventsmadeira.com/evento/festas-de-sao-pedro-2/"
-        }
+        },
+        {"id":5,
+        "title":"Summer Opening 2024",
+        "description":"O Summer Opening é um evento de grande escala que marca o início da temporada de verão. Realizado no Parque de Santa Catarina, este evento apresenta o concerto de vários artistas renumerados. Com uma atmosfera vibrante e descontraída, o Summer Opening atrai um grande público, incluindo turistas e moradores locais, proporcionando uma experiência única de celebração e entretenimento para dar as boas-vindas à estação mais quente do ano.",
+        "transports":{"rodeste":"7, 80, 107, 139, 142","giro":"12, 10A","SAM":"113, 23"},
+        "location":"Funchal",
+        "location2":"Parque de Santa Catarina",
+        "img":"/images/SO2024.jpg",
+        "type":"festivais",
+        "beginDate":"2024-07-12",
+        "endDate":"2024-07-20",
+        "spotify":["https://open.spotify.com/playlist/301QjOFhYDzs8di0NWnPus"],
+        "youtube":["https://www.youtube.com/watch?v=ui9Lh5mmQSE"],
+        "gallery":"/images/gallery/SO",
+        "cartazSource":"/images/SO2024.jpg",
+        "siteUrl":"https://www.summeropening.pt"}
         // ... other events
       ];
 
