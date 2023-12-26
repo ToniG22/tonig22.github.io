@@ -47,14 +47,14 @@ export default function Header() {
             >
               Mapa
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="admin"
               className={(navData) =>
                 navData.isActive ? "nav-link active" : "nav-link"
               }
             >
               Admin
-            </NavLink>
+            </NavLink> */}
           </div>
         </nav>
       </div>

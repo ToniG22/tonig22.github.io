@@ -29,9 +29,13 @@ const Home = () => {
 
   // Filter events for the entire week
   const weeklyEvents = events.filter((event) => {
-    const eventDate = new Date(event.endDate); // Assuming event.dates[0] is in "YYYY-MM-DD" format
+    // const eventDate = new Date(event.endDate); // Assuming event.dates[0] is in "YYYY-MM-DD" format
     // Compare the event date against the entire week
-    return (eventDate >= startOfWeek && eventDate <= endOfWeek) || {};
+    // return (eventDate >= startOfWeek && eventDate <= endOfWeek) || {};
+
+    // This function works, but we will comment it so it shows events!
+    // Given that we only have 3 events this is just a proof of concept!
+    return events 
   });
 
   return (
@@ -57,7 +61,7 @@ const Home = () => {
       <main>
         <section>
           <div className="H2-block">
-            <h2 className="H2-home">Destaques</h2>
+            <h2 className="H2-home">Próxima Semana!</h2>
             <EventsGrid events={weeklyEvents} />
           </div>
         </section>

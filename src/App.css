@@ -402,6 +402,18 @@ li a:hover {
   opacity: 0;
 }
 
+.mapLegend {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.mapLegendItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* ----------- Página dos eventos ----------- */
 
 .event-content-container {
@@ -507,6 +519,19 @@ svg {
 
 /* ------------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------FORM EVENTS STYLE------------------------------------------------- */
+
+.search-bar {
+  margin-bottom: 15px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
 form {
   max-width: 750px;

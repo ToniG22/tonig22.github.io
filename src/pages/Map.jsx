@@ -13,6 +13,23 @@ const Map = () => {
     setEvents(parsedEvents);
   };
 
+  const isEventNextWeek = (event) => {
+    const eventEndDate = new Date(event.endDate);
+    const eventBeginDate = new Date(event.beginDate)
+    const nextWeekEndDate = new Date();
+    nextWeekEndDate.setDate(nextWeekEndDate.getDate() + 7);
+
+    const nextWeekBeginDate = new Date();
+    nextWeekBeginDate.setDate(nextWeekBeginDate.getDate());
+
+    console.log(nextWeekBeginDate + nextWeekEndDate)
+
+    console.log(eventBeginDate + eventEndDate)
+
+
+    return eventBeginDate >= nextWeekBeginDate && eventEndDate <= nextWeekEndDate;
+  };
+
   useEffect(() => {
     reloadEvents();
   }, []);
@@ -115,6 +132,16 @@ const Map = () => {
                 </button>
                 <CiLocationOn
                   size={75}
+                  fill={
+                    events.some(
+                      (event) =>
+                        event.location === location.name &&
+                        (event.type === "festivais" || event.type === "arraiais") &&
+                        isEventNextWeek(event)
+                    )
+                      ? "#FEDB39"
+                      : "white"
+                  }
                   className={`ciLocationOn ${
                     selectedLocation === location.name ? "hidden" : ""
                   }`}
@@ -122,7 +149,12 @@ const Map = () => {
               </div>
         ))}
           </div>
+          <div className="mapLegend">
+            <p className="mapLegendItem"><CiLocationOn size={25} fill="white"></CiLocationOn> - Eventos brevemente!</p>
+            <p className="mapLegendItem"><CiLocationOn size={25} fill="#FEDB39"></CiLocationOn> - Eventos próxima semana!</p>
+          </div>
         </div>
+        
       )}
 
       {selectedLocation && (
